@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.32
+// Model version                  : 1.36
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Sat May 29 16:36:44 2021
+// C/C++ source code generated on : Tue Jun  1 11:17:05 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -426,16 +426,16 @@ void velocity_controller_initialize(void)
 
   {
     int32_T i;
-    char_T b_zeroDelimTopic_0[13];
-    char_T b_zeroDelimTopic_1[11];
-    char_T b_zeroDelimTopic[9];
-    static const char_T tmp[8] = { '/', 'c', 'm', 'd', '_', 'v', 'e', 'l' };
+    char_T b_zeroDelimTopic_0[12];
+    char_T b_zeroDelimTopic_1[10];
+    char_T b_zeroDelimTopic[8];
+    static const char_T tmp[7] = { 'c', 'm', 'd', '_', 'v', 'e', 'l' };
 
-    static const char_T tmp_0[12] = { '/', 'v', 'e', 'h', 'i', 'c', 'l', 'e',
-      '/', 'v', 'e', 'l' };
+    static const char_T tmp_0[11] = { 'v', 'e', 'h', 'i', 'c', 'l', 'e', '/',
+      'v', 'e', 'l' };
 
-    static const char_T tmp_1[10] = { '/', 'c', 'm', 'd', '_', 'a', 'c', 'c',
-      'e', 'l' };
+    static const char_T tmp_1[9] = { 'c', 'm', 'd', '_', 'a', 'c', 'c', 'e', 'l'
+    };
 
     // InitializeConditions for Integrator: '<S39>/Integrator'
     velocity_controller_X.Integrator_CSTATE =
@@ -461,11 +461,11 @@ void velocity_controller_initialize(void)
     // Start for MATLABSystem: '<S5>/SourceBlock'
     velocity_controller_DW.obj_g.matlabCodegenIsDeleted = false;
     velocity_controller_DW.obj_g.isInitialized = 1;
-    for (i = 0; i < 8; i++) {
+    for (i = 0; i < 7; i++) {
       b_zeroDelimTopic[i] = tmp[i];
     }
 
-    b_zeroDelimTopic[8] = '\x00';
+    b_zeroDelimTopic[7] = '\x00';
     Sub_velocity_controller_31.createSubscriber(&b_zeroDelimTopic[0], 1);
     velocity_controller_DW.obj_g.isSetupComplete = true;
 
@@ -484,11 +484,11 @@ void velocity_controller_initialize(void)
     // Start for MATLABSystem: '<S4>/SourceBlock'
     velocity_controller_DW.obj_n.matlabCodegenIsDeleted = false;
     velocity_controller_DW.obj_n.isInitialized = 1;
-    for (i = 0; i < 12; i++) {
+    for (i = 0; i < 11; i++) {
       b_zeroDelimTopic_0[i] = tmp_0[i];
     }
 
-    b_zeroDelimTopic_0[12] = '\x00';
+    b_zeroDelimTopic_0[11] = '\x00';
     Sub_velocity_controller_10.createSubscriber(&b_zeroDelimTopic_0[0], 1);
     velocity_controller_DW.obj_n.isSetupComplete = true;
 
@@ -499,11 +499,11 @@ void velocity_controller_initialize(void)
     // Start for MATLABSystem: '<S3>/SinkBlock'
     velocity_controller_DW.obj.matlabCodegenIsDeleted = false;
     velocity_controller_DW.obj.isInitialized = 1;
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i < 9; i++) {
       b_zeroDelimTopic_1[i] = tmp_1[i];
     }
 
-    b_zeroDelimTopic_1[10] = '\x00';
+    b_zeroDelimTopic_1[9] = '\x00';
     Pub_velocity_controller_3.createPublisher(&b_zeroDelimTopic_1[0], 1);
     velocity_controller_DW.obj.isSetupComplete = true;
 
