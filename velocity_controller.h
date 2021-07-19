@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.36
+// Model version                  : 1.37
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Tue Jun  1 11:17:05 2021
+// C/C++ source code generated on : Mon Jul 19 14:05:28 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -149,41 +149,41 @@
 
 // Block signals (default storage)
 struct B_velocity_controller_T {
-  SL_Bus_velocity_controller_geometry_msgs_Twist In1;// '<S57>/In1'
-  SL_Bus_velocity_controller_geometry_msgs_Twist In1_d;// '<S56>/In1'
+  SL_Bus_velocity_controller_geometry_msgs_Twist In1;// '<S7>/In1'
+  SL_Bus_velocity_controller_geometry_msgs_Twist In1_d;// '<S6>/In1'
   SL_Bus_velocity_controller_geometry_msgs_Twist b_varargout_2;
-  real_T ProportionalGain;             // '<S44>/Proportional Gain'
-  real_T DerivativeGain;               // '<S33>/Derivative Gain'
-  real_T FilterCoefficient;            // '<S42>/Filter Coefficient'
-  real_T Switch;                       // '<S30>/Switch'
-  int8_T DataTypeConv2;                // '<S30>/DataTypeConv2'
-  boolean_T AND3;                      // '<S30>/AND3'
+  real_T ProportionalGain;             // '<S46>/Proportional Gain'
+  real_T DerivativeGain;               // '<S35>/Derivative Gain'
+  real_T FilterCoefficient;            // '<S44>/Filter Coefficient'
+  real_T Switch;                       // '<S32>/Switch'
+  int8_T DataTypeConv2;                // '<S32>/DataTypeConv2'
+  boolean_T AND3;                      // '<S32>/AND3'
 };
 
 // Block states (default storage) for system '<Root>'
 struct DW_velocity_controller_T {
-  ros_slroscpp_internal_block_P_T obj; // '<S3>/SinkBlock'
-  ros_slroscpp_internal_block_S_T obj_g;// '<S5>/SourceBlock'
-  ros_slroscpp_internal_block_S_T obj_n;// '<S4>/SourceBlock'
-  boolean_T Memory_PreviousInput;      // '<S30>/Memory'
+  ros_slroscpp_internal_block_P_T obj; // '<S2>/SinkBlock'
+  ros_slroscpp_internal_block_S_T obj_g;// '<S4>/SourceBlock'
+  ros_slroscpp_internal_block_S_T obj_n;// '<S3>/SourceBlock'
+  boolean_T Memory_PreviousInput;      // '<S32>/Memory'
 };
 
 // Continuous states (default storage)
 struct X_velocity_controller_T {
-  real_T Integrator_CSTATE;            // '<S39>/Integrator'
-  real_T Filter_CSTATE;                // '<S34>/Filter'
+  real_T Integrator_CSTATE;            // '<S41>/Integrator'
+  real_T Filter_CSTATE;                // '<S36>/Filter'
 };
 
 // State derivatives (default storage)
 struct XDot_velocity_controller_T {
-  real_T Integrator_CSTATE;            // '<S39>/Integrator'
-  real_T Filter_CSTATE;                // '<S34>/Filter'
+  real_T Integrator_CSTATE;            // '<S41>/Integrator'
+  real_T Filter_CSTATE;                // '<S36>/Filter'
 };
 
 // State disabled
 struct XDis_velocity_controller_T {
-  boolean_T Integrator_CSTATE;         // '<S39>/Integrator'
-  boolean_T Filter_CSTATE;             // '<S34>/Filter'
+  boolean_T Integrator_CSTATE;         // '<S41>/Integrator'
+  boolean_T Filter_CSTATE;             // '<S36>/Filter'
 };
 
 #ifndef ODE3_INTG
@@ -199,55 +199,55 @@ struct ODE3_IntgData {
 
 // Parameters (default storage)
 struct P_velocity_controller_T_ {
-  real_T PIDController1_D;             // Mask Parameter: PIDController1_D
-                                          //  Referenced by: '<S33>/Derivative Gain'
+  real_T reference_tracking_D;         // Mask Parameter: reference_tracking_D
+                                          //  Referenced by: '<S35>/Derivative Gain'
 
-  real_T PIDController1_I;             // Mask Parameter: PIDController1_I
-                                          //  Referenced by: '<S36>/Integral Gain'
+  real_T reference_tracking_I;         // Mask Parameter: reference_tracking_I
+                                          //  Referenced by: '<S38>/Integral Gain'
 
-  real_T PIDController1_InitialCondition;
-                              // Mask Parameter: PIDController1_InitialCondition
-                                 //  Referenced by: '<S34>/Filter'
+  real_T reference_tracking_InitialCondi;
+                              // Mask Parameter: reference_tracking_InitialCondi
+                                 //  Referenced by: '<S36>/Filter'
 
-  real_T PIDController1_InitialConditi_h;
-                              // Mask Parameter: PIDController1_InitialConditi_h
-                                 //  Referenced by: '<S39>/Integrator'
+  real_T reference_tracking_InitialCon_n;
+                              // Mask Parameter: reference_tracking_InitialCon_n
+                                 //  Referenced by: '<S41>/Integrator'
 
-  real_T PIDController1_LowerSaturationL;
-                              // Mask Parameter: PIDController1_LowerSaturationL
+  real_T reference_tracking_LowerSaturat;
+                              // Mask Parameter: reference_tracking_LowerSaturat
                                  //  Referenced by:
-                                 //    '<S46>/Saturation'
-                                 //    '<S32>/DeadZone'
+                                 //    '<S48>/Saturation'
+                                 //    '<S34>/DeadZone'
 
-  real_T PIDController1_N;             // Mask Parameter: PIDController1_N
-                                          //  Referenced by: '<S42>/Filter Coefficient'
+  real_T reference_tracking_N;         // Mask Parameter: reference_tracking_N
+                                          //  Referenced by: '<S44>/Filter Coefficient'
 
-  real_T PIDController1_P;             // Mask Parameter: PIDController1_P
-                                          //  Referenced by: '<S44>/Proportional Gain'
+  real_T reference_tracking_P;         // Mask Parameter: reference_tracking_P
+                                          //  Referenced by: '<S46>/Proportional Gain'
 
-  real_T PIDController1_UpperSaturationL;
-                              // Mask Parameter: PIDController1_UpperSaturationL
+  real_T reference_tracking_UpperSaturat;
+                              // Mask Parameter: reference_tracking_UpperSaturat
                                  //  Referenced by:
-                                 //    '<S46>/Saturation'
-                                 //    '<S32>/DeadZone'
+                                 //    '<S48>/Saturation'
+                                 //    '<S34>/DeadZone'
 
   SL_Bus_velocity_controller_geometry_msgs_Twist Out1_Y0;// Computed Parameter: Out1_Y0
-                                                            //  Referenced by: '<S56>/Out1'
+                                                            //  Referenced by: '<S6>/Out1'
 
   SL_Bus_velocity_controller_geometry_msgs_Twist Constant_Value;// Computed Parameter: Constant_Value
-                                                                   //  Referenced by: '<S4>/Constant'
+                                                                   //  Referenced by: '<S3>/Constant'
 
   SL_Bus_velocity_controller_geometry_msgs_Twist Out1_Y0_h;// Computed Parameter: Out1_Y0_h
-                                                              //  Referenced by: '<S57>/Out1'
+                                                              //  Referenced by: '<S7>/Out1'
 
   SL_Bus_velocity_controller_geometry_msgs_Twist Constant_Value_j;// Computed Parameter: Constant_Value_j
-                                                                     //  Referenced by: '<S5>/Constant'
+                                                                     //  Referenced by: '<S4>/Constant'
 
   SL_Bus_velocity_controller_std_msgs_Float64 Constant_Value_d;// Computed Parameter: Constant_Value_d
                                                                   //  Referenced by: '<S1>/Constant'
 
   real_T Constant1_Value;              // Expression: 0
-                                          //  Referenced by: '<S30>/Constant1'
+                                          //  Referenced by: '<S32>/Constant1'
 
   real_T Saturation_UpperSat;          // Expression: 1.5
                                           //  Referenced by: '<Root>/Saturation'
@@ -256,11 +256,11 @@ struct P_velocity_controller_T_ {
                                           //  Referenced by: '<Root>/Saturation'
 
   real_T ZeroGain_Gain;                // Expression: 0
-                                          //  Referenced by: '<S30>/ZeroGain'
+                                          //  Referenced by: '<S32>/ZeroGain'
 
   boolean_T Memory_InitialCondition;
                                   // Computed Parameter: Memory_InitialCondition
-                                     //  Referenced by: '<S30>/Memory'
+                                     //  Referenced by: '<S32>/Memory'
 
 };
 
@@ -388,62 +388,62 @@ extern "C" {
 //
 //  '<Root>' : 'velocity_controller'
 //  '<S1>'   : 'velocity_controller/Blank Message'
-//  '<S2>'   : 'velocity_controller/PID Controller1'
-//  '<S3>'   : 'velocity_controller/Publish'
-//  '<S4>'   : 'velocity_controller/Subscribe'
-//  '<S5>'   : 'velocity_controller/Subscribe1'
-//  '<S6>'   : 'velocity_controller/PID Controller1/Anti-windup'
-//  '<S7>'   : 'velocity_controller/PID Controller1/D Gain'
-//  '<S8>'   : 'velocity_controller/PID Controller1/Filter'
-//  '<S9>'   : 'velocity_controller/PID Controller1/Filter ICs'
-//  '<S10>'  : 'velocity_controller/PID Controller1/I Gain'
-//  '<S11>'  : 'velocity_controller/PID Controller1/Ideal P Gain'
-//  '<S12>'  : 'velocity_controller/PID Controller1/Ideal P Gain Fdbk'
-//  '<S13>'  : 'velocity_controller/PID Controller1/Integrator'
-//  '<S14>'  : 'velocity_controller/PID Controller1/Integrator ICs'
-//  '<S15>'  : 'velocity_controller/PID Controller1/N Copy'
-//  '<S16>'  : 'velocity_controller/PID Controller1/N Gain'
-//  '<S17>'  : 'velocity_controller/PID Controller1/P Copy'
-//  '<S18>'  : 'velocity_controller/PID Controller1/Parallel P Gain'
-//  '<S19>'  : 'velocity_controller/PID Controller1/Reset Signal'
-//  '<S20>'  : 'velocity_controller/PID Controller1/Saturation'
-//  '<S21>'  : 'velocity_controller/PID Controller1/Saturation Fdbk'
-//  '<S22>'  : 'velocity_controller/PID Controller1/Sum'
-//  '<S23>'  : 'velocity_controller/PID Controller1/Sum Fdbk'
-//  '<S24>'  : 'velocity_controller/PID Controller1/Tracking Mode'
-//  '<S25>'  : 'velocity_controller/PID Controller1/Tracking Mode Sum'
-//  '<S26>'  : 'velocity_controller/PID Controller1/Tsamp - Integral'
-//  '<S27>'  : 'velocity_controller/PID Controller1/Tsamp - Ngain'
-//  '<S28>'  : 'velocity_controller/PID Controller1/postSat Signal'
-//  '<S29>'  : 'velocity_controller/PID Controller1/preSat Signal'
-//  '<S30>'  : 'velocity_controller/PID Controller1/Anti-windup/Cont. Clamping Parallel'
-//  '<S31>'  : 'velocity_controller/PID Controller1/Anti-windup/Cont. Clamping Parallel/Dead Zone'
-//  '<S32>'  : 'velocity_controller/PID Controller1/Anti-windup/Cont. Clamping Parallel/Dead Zone/Enabled'
-//  '<S33>'  : 'velocity_controller/PID Controller1/D Gain/Internal Parameters'
-//  '<S34>'  : 'velocity_controller/PID Controller1/Filter/Cont. Filter'
-//  '<S35>'  : 'velocity_controller/PID Controller1/Filter ICs/Internal IC - Filter'
-//  '<S36>'  : 'velocity_controller/PID Controller1/I Gain/Internal Parameters'
-//  '<S37>'  : 'velocity_controller/PID Controller1/Ideal P Gain/Passthrough'
-//  '<S38>'  : 'velocity_controller/PID Controller1/Ideal P Gain Fdbk/Disabled'
-//  '<S39>'  : 'velocity_controller/PID Controller1/Integrator/Continuous'
-//  '<S40>'  : 'velocity_controller/PID Controller1/Integrator ICs/Internal IC'
-//  '<S41>'  : 'velocity_controller/PID Controller1/N Copy/Disabled'
-//  '<S42>'  : 'velocity_controller/PID Controller1/N Gain/Internal Parameters'
-//  '<S43>'  : 'velocity_controller/PID Controller1/P Copy/Disabled'
-//  '<S44>'  : 'velocity_controller/PID Controller1/Parallel P Gain/Internal Parameters'
-//  '<S45>'  : 'velocity_controller/PID Controller1/Reset Signal/Disabled'
-//  '<S46>'  : 'velocity_controller/PID Controller1/Saturation/Enabled'
-//  '<S47>'  : 'velocity_controller/PID Controller1/Saturation Fdbk/Disabled'
-//  '<S48>'  : 'velocity_controller/PID Controller1/Sum/Sum_PID'
-//  '<S49>'  : 'velocity_controller/PID Controller1/Sum Fdbk/Disabled'
-//  '<S50>'  : 'velocity_controller/PID Controller1/Tracking Mode/Disabled'
-//  '<S51>'  : 'velocity_controller/PID Controller1/Tracking Mode Sum/Passthrough'
-//  '<S52>'  : 'velocity_controller/PID Controller1/Tsamp - Integral/Passthrough'
-//  '<S53>'  : 'velocity_controller/PID Controller1/Tsamp - Ngain/Passthrough'
-//  '<S54>'  : 'velocity_controller/PID Controller1/postSat Signal/Forward_Path'
-//  '<S55>'  : 'velocity_controller/PID Controller1/preSat Signal/Forward_Path'
-//  '<S56>'  : 'velocity_controller/Subscribe/Enabled Subsystem'
-//  '<S57>'  : 'velocity_controller/Subscribe1/Enabled Subsystem'
+//  '<S2>'   : 'velocity_controller/Publish'
+//  '<S3>'   : 'velocity_controller/Subscribe'
+//  '<S4>'   : 'velocity_controller/Subscribe1'
+//  '<S5>'   : 'velocity_controller/reference_tracking'
+//  '<S6>'   : 'velocity_controller/Subscribe/Enabled Subsystem'
+//  '<S7>'   : 'velocity_controller/Subscribe1/Enabled Subsystem'
+//  '<S8>'   : 'velocity_controller/reference_tracking/Anti-windup'
+//  '<S9>'   : 'velocity_controller/reference_tracking/D Gain'
+//  '<S10>'  : 'velocity_controller/reference_tracking/Filter'
+//  '<S11>'  : 'velocity_controller/reference_tracking/Filter ICs'
+//  '<S12>'  : 'velocity_controller/reference_tracking/I Gain'
+//  '<S13>'  : 'velocity_controller/reference_tracking/Ideal P Gain'
+//  '<S14>'  : 'velocity_controller/reference_tracking/Ideal P Gain Fdbk'
+//  '<S15>'  : 'velocity_controller/reference_tracking/Integrator'
+//  '<S16>'  : 'velocity_controller/reference_tracking/Integrator ICs'
+//  '<S17>'  : 'velocity_controller/reference_tracking/N Copy'
+//  '<S18>'  : 'velocity_controller/reference_tracking/N Gain'
+//  '<S19>'  : 'velocity_controller/reference_tracking/P Copy'
+//  '<S20>'  : 'velocity_controller/reference_tracking/Parallel P Gain'
+//  '<S21>'  : 'velocity_controller/reference_tracking/Reset Signal'
+//  '<S22>'  : 'velocity_controller/reference_tracking/Saturation'
+//  '<S23>'  : 'velocity_controller/reference_tracking/Saturation Fdbk'
+//  '<S24>'  : 'velocity_controller/reference_tracking/Sum'
+//  '<S25>'  : 'velocity_controller/reference_tracking/Sum Fdbk'
+//  '<S26>'  : 'velocity_controller/reference_tracking/Tracking Mode'
+//  '<S27>'  : 'velocity_controller/reference_tracking/Tracking Mode Sum'
+//  '<S28>'  : 'velocity_controller/reference_tracking/Tsamp - Integral'
+//  '<S29>'  : 'velocity_controller/reference_tracking/Tsamp - Ngain'
+//  '<S30>'  : 'velocity_controller/reference_tracking/postSat Signal'
+//  '<S31>'  : 'velocity_controller/reference_tracking/preSat Signal'
+//  '<S32>'  : 'velocity_controller/reference_tracking/Anti-windup/Cont. Clamping Parallel'
+//  '<S33>'  : 'velocity_controller/reference_tracking/Anti-windup/Cont. Clamping Parallel/Dead Zone'
+//  '<S34>'  : 'velocity_controller/reference_tracking/Anti-windup/Cont. Clamping Parallel/Dead Zone/Enabled'
+//  '<S35>'  : 'velocity_controller/reference_tracking/D Gain/Internal Parameters'
+//  '<S36>'  : 'velocity_controller/reference_tracking/Filter/Cont. Filter'
+//  '<S37>'  : 'velocity_controller/reference_tracking/Filter ICs/Internal IC - Filter'
+//  '<S38>'  : 'velocity_controller/reference_tracking/I Gain/Internal Parameters'
+//  '<S39>'  : 'velocity_controller/reference_tracking/Ideal P Gain/Passthrough'
+//  '<S40>'  : 'velocity_controller/reference_tracking/Ideal P Gain Fdbk/Disabled'
+//  '<S41>'  : 'velocity_controller/reference_tracking/Integrator/Continuous'
+//  '<S42>'  : 'velocity_controller/reference_tracking/Integrator ICs/Internal IC'
+//  '<S43>'  : 'velocity_controller/reference_tracking/N Copy/Disabled'
+//  '<S44>'  : 'velocity_controller/reference_tracking/N Gain/Internal Parameters'
+//  '<S45>'  : 'velocity_controller/reference_tracking/P Copy/Disabled'
+//  '<S46>'  : 'velocity_controller/reference_tracking/Parallel P Gain/Internal Parameters'
+//  '<S47>'  : 'velocity_controller/reference_tracking/Reset Signal/Disabled'
+//  '<S48>'  : 'velocity_controller/reference_tracking/Saturation/Enabled'
+//  '<S49>'  : 'velocity_controller/reference_tracking/Saturation Fdbk/Disabled'
+//  '<S50>'  : 'velocity_controller/reference_tracking/Sum/Sum_PID'
+//  '<S51>'  : 'velocity_controller/reference_tracking/Sum Fdbk/Disabled'
+//  '<S52>'  : 'velocity_controller/reference_tracking/Tracking Mode/Disabled'
+//  '<S53>'  : 'velocity_controller/reference_tracking/Tracking Mode Sum/Passthrough'
+//  '<S54>'  : 'velocity_controller/reference_tracking/Tsamp - Integral/Passthrough'
+//  '<S55>'  : 'velocity_controller/reference_tracking/Tsamp - Ngain/Passthrough'
+//  '<S56>'  : 'velocity_controller/reference_tracking/postSat Signal/Forward_Path'
+//  '<S57>'  : 'velocity_controller/reference_tracking/preSat Signal/Forward_Path'
 
 #endif                                 // RTW_HEADER_velocity_controller_h_
 

@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.36
+// Model version                  : 1.37
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Tue Jun  1 11:17:05 2021
+// C/C++ source code generated on : Mon Jul 19 14:05:28 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -21,52 +21,52 @@
 
 // Block parameters (default storage)
 P_velocity_controller_T velocity_controller_P = {
-  // Mask Parameter: PIDController1_D
-  //  Referenced by: '<S33>/Derivative Gain'
+  // Mask Parameter: reference_tracking_D
+  //  Referenced by: '<S35>/Derivative Gain'
 
-  1.14032900506104,
+  1.33981022316214,
 
-  // Mask Parameter: PIDController1_I
-  //  Referenced by: '<S36>/Integral Gain'
+  // Mask Parameter: reference_tracking_I
+  //  Referenced by: '<S38>/Integral Gain'
 
-  0.134074922947779,
+  0.0655731064858092,
 
-  // Mask Parameter: PIDController1_InitialCondition
-  //  Referenced by: '<S34>/Filter'
-
-  0.0,
-
-  // Mask Parameter: PIDController1_InitialConditi_h
-  //  Referenced by: '<S39>/Integrator'
+  // Mask Parameter: reference_tracking_InitialCondi
+  //  Referenced by: '<S36>/Filter'
 
   0.0,
 
-  // Mask Parameter: PIDController1_LowerSaturationL
+  // Mask Parameter: reference_tracking_InitialCon_n
+  //  Referenced by: '<S41>/Integrator'
+
+  0.0,
+
+  // Mask Parameter: reference_tracking_LowerSaturat
   //  Referenced by:
-  //    '<S46>/Saturation'
-  //    '<S32>/DeadZone'
+  //    '<S48>/Saturation'
+  //    '<S34>/DeadZone'
 
   -3.0,
 
-  // Mask Parameter: PIDController1_N
-  //  Referenced by: '<S42>/Filter Coefficient'
+  // Mask Parameter: reference_tracking_N
+  //  Referenced by: '<S44>/Filter Coefficient'
 
-  2.31488315878784,
+  7.54853219511638,
 
-  // Mask Parameter: PIDController1_P
-  //  Referenced by: '<S44>/Proportional Gain'
+  // Mask Parameter: reference_tracking_P
+  //  Referenced by: '<S46>/Proportional Gain'
 
-  1.0467641274631,
+  2.71967723043159,
 
-  // Mask Parameter: PIDController1_UpperSaturationL
+  // Mask Parameter: reference_tracking_UpperSaturat
   //  Referenced by:
-  //    '<S46>/Saturation'
-  //    '<S32>/DeadZone'
+  //    '<S48>/Saturation'
+  //    '<S34>/DeadZone'
 
   1.5,
 
   // Computed Parameter: Out1_Y0
-  //  Referenced by: '<S56>/Out1'
+  //  Referenced by: '<S6>/Out1'
 
   {
     {
@@ -83,7 +83,7 @@ P_velocity_controller_T velocity_controller_P = {
   },
 
   // Computed Parameter: Constant_Value
-  //  Referenced by: '<S4>/Constant'
+  //  Referenced by: '<S3>/Constant'
 
   {
     {
@@ -100,7 +100,7 @@ P_velocity_controller_T velocity_controller_P = {
   },
 
   // Computed Parameter: Out1_Y0_h
-  //  Referenced by: '<S57>/Out1'
+  //  Referenced by: '<S7>/Out1'
 
   {
     {
@@ -117,7 +117,7 @@ P_velocity_controller_T velocity_controller_P = {
   },
 
   // Computed Parameter: Constant_Value_j
-  //  Referenced by: '<S5>/Constant'
+  //  Referenced by: '<S4>/Constant'
 
   {
     {
@@ -141,7 +141,7 @@ P_velocity_controller_T velocity_controller_P = {
   },
 
   // Expression: 0
-  //  Referenced by: '<S30>/Constant1'
+  //  Referenced by: '<S32>/Constant1'
 
   0.0,
 
@@ -156,12 +156,12 @@ P_velocity_controller_T velocity_controller_P = {
   -3.0,
 
   // Expression: 0
-  //  Referenced by: '<S30>/ZeroGain'
+  //  Referenced by: '<S32>/ZeroGain'
 
   0.0,
 
   // Computed Parameter: Memory_InitialCondition
-  //  Referenced by: '<S30>/Memory'
+  //  Referenced by: '<S32>/Memory'
 
   0
 };

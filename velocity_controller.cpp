@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.36
+// Model version                  : 1.37
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Tue Jun  1 11:17:05 2021
+// C/C++ source code generated on : Mon Jul 19 14:05:28 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -139,80 +139,80 @@ void velocity_controller_step(void)
 
   if (rtmIsMajorTimeStep(velocity_controller_M)) {
     // Outputs for Atomic SubSystem: '<Root>/Subscribe1'
-    // MATLABSystem: '<S5>/SourceBlock' incorporates:
-    //   Inport: '<S57>/In1'
+    // MATLABSystem: '<S4>/SourceBlock' incorporates:
+    //   Inport: '<S7>/In1'
 
     b_varargout_1 = Sub_velocity_controller_31.getLatestMessage
       (&velocity_controller_B.b_varargout_2);
 
-    // Outputs for Enabled SubSystem: '<S5>/Enabled Subsystem' incorporates:
-    //   EnablePort: '<S57>/Enable'
+    // Outputs for Enabled SubSystem: '<S4>/Enabled Subsystem' incorporates:
+    //   EnablePort: '<S7>/Enable'
 
     if (b_varargout_1) {
       velocity_controller_B.In1 = velocity_controller_B.b_varargout_2;
     }
 
-    // End of MATLABSystem: '<S5>/SourceBlock'
-    // End of Outputs for SubSystem: '<S5>/Enabled Subsystem'
+    // End of MATLABSystem: '<S4>/SourceBlock'
+    // End of Outputs for SubSystem: '<S4>/Enabled Subsystem'
     // End of Outputs for SubSystem: '<Root>/Subscribe1'
 
     // Outputs for Atomic SubSystem: '<Root>/Subscribe'
-    // MATLABSystem: '<S4>/SourceBlock' incorporates:
-    //   Inport: '<S56>/In1'
+    // MATLABSystem: '<S3>/SourceBlock' incorporates:
+    //   Inport: '<S6>/In1'
 
     b_varargout_1 = Sub_velocity_controller_10.getLatestMessage
       (&velocity_controller_B.b_varargout_2);
 
-    // Outputs for Enabled SubSystem: '<S4>/Enabled Subsystem' incorporates:
-    //   EnablePort: '<S56>/Enable'
+    // Outputs for Enabled SubSystem: '<S3>/Enabled Subsystem' incorporates:
+    //   EnablePort: '<S6>/Enable'
 
     if (b_varargout_1) {
       velocity_controller_B.In1_d = velocity_controller_B.b_varargout_2;
     }
 
-    // End of MATLABSystem: '<S4>/SourceBlock'
-    // End of Outputs for SubSystem: '<S4>/Enabled Subsystem'
+    // End of MATLABSystem: '<S3>/SourceBlock'
+    // End of Outputs for SubSystem: '<S3>/Enabled Subsystem'
     // End of Outputs for SubSystem: '<Root>/Subscribe'
 
     // Sum: '<Root>/Sum'
     rtb_IntegralGain = velocity_controller_B.In1.Linear.X -
       velocity_controller_B.In1_d.Linear.X;
 
-    // Gain: '<S44>/Proportional Gain'
+    // Gain: '<S46>/Proportional Gain'
     velocity_controller_B.ProportionalGain =
-      velocity_controller_P.PIDController1_P * rtb_IntegralGain;
+      velocity_controller_P.reference_tracking_P * rtb_IntegralGain;
 
-    // Gain: '<S33>/Derivative Gain'
+    // Gain: '<S35>/Derivative Gain'
     velocity_controller_B.DerivativeGain =
-      velocity_controller_P.PIDController1_D * rtb_IntegralGain;
+      velocity_controller_P.reference_tracking_D * rtb_IntegralGain;
   }
 
-  // Gain: '<S42>/Filter Coefficient' incorporates:
-  //   Integrator: '<S34>/Filter'
-  //   Sum: '<S34>/SumD'
+  // Gain: '<S44>/Filter Coefficient' incorporates:
+  //   Integrator: '<S36>/Filter'
+  //   Sum: '<S36>/SumD'
 
   velocity_controller_B.FilterCoefficient =
     (velocity_controller_B.DerivativeGain - velocity_controller_X.Filter_CSTATE)
-    * velocity_controller_P.PIDController1_N;
+    * velocity_controller_P.reference_tracking_N;
 
-  // Sum: '<S48>/Sum' incorporates:
-  //   Integrator: '<S39>/Integrator'
+  // Sum: '<S50>/Sum' incorporates:
+  //   Integrator: '<S41>/Integrator'
 
   rtb_SignPreSat = (velocity_controller_B.ProportionalGain +
                     velocity_controller_X.Integrator_CSTATE) +
     velocity_controller_B.FilterCoefficient;
 
-  // Saturate: '<S46>/Saturation'
-  if (rtb_SignPreSat > velocity_controller_P.PIDController1_UpperSaturationL) {
-    rtb_ZeroGain = velocity_controller_P.PIDController1_UpperSaturationL;
+  // Saturate: '<S48>/Saturation'
+  if (rtb_SignPreSat > velocity_controller_P.reference_tracking_UpperSaturat) {
+    rtb_ZeroGain = velocity_controller_P.reference_tracking_UpperSaturat;
   } else if (rtb_SignPreSat <
-             velocity_controller_P.PIDController1_LowerSaturationL) {
-    rtb_ZeroGain = velocity_controller_P.PIDController1_LowerSaturationL;
+             velocity_controller_P.reference_tracking_LowerSaturat) {
+    rtb_ZeroGain = velocity_controller_P.reference_tracking_LowerSaturat;
   } else {
     rtb_ZeroGain = rtb_SignPreSat;
   }
 
-  // End of Saturate: '<S46>/Saturation'
+  // End of Saturate: '<S48>/Saturation'
 
   // Saturate: '<Root>/Saturation'
   if (rtb_ZeroGain > velocity_controller_P.Saturation_UpperSat) {
@@ -229,113 +229,113 @@ void velocity_controller_step(void)
   // End of Saturate: '<Root>/Saturation'
 
   // Outputs for Atomic SubSystem: '<Root>/Publish'
-  // MATLABSystem: '<S3>/SinkBlock'
+  // MATLABSystem: '<S2>/SinkBlock'
   Pub_velocity_controller_3.publish(&rtb_BusAssignment);
 
   // End of Outputs for SubSystem: '<Root>/Publish'
 
-  // Gain: '<S30>/ZeroGain'
+  // Gain: '<S32>/ZeroGain'
   rtb_ZeroGain = velocity_controller_P.ZeroGain_Gain * rtb_SignPreSat;
 
-  // DeadZone: '<S32>/DeadZone'
-  if (rtb_SignPreSat > velocity_controller_P.PIDController1_UpperSaturationL) {
-    rtb_SignPreSat -= velocity_controller_P.PIDController1_UpperSaturationL;
+  // DeadZone: '<S34>/DeadZone'
+  if (rtb_SignPreSat > velocity_controller_P.reference_tracking_UpperSaturat) {
+    rtb_SignPreSat -= velocity_controller_P.reference_tracking_UpperSaturat;
   } else if (rtb_SignPreSat >=
-             velocity_controller_P.PIDController1_LowerSaturationL) {
+             velocity_controller_P.reference_tracking_LowerSaturat) {
     rtb_SignPreSat = 0.0;
   } else {
-    rtb_SignPreSat -= velocity_controller_P.PIDController1_LowerSaturationL;
+    rtb_SignPreSat -= velocity_controller_P.reference_tracking_LowerSaturat;
   }
 
-  // End of DeadZone: '<S32>/DeadZone'
+  // End of DeadZone: '<S34>/DeadZone'
   if (rtmIsMajorTimeStep(velocity_controller_M)) {
-    // Gain: '<S36>/Integral Gain'
-    rtb_IntegralGain *= velocity_controller_P.PIDController1_I;
+    // Gain: '<S38>/Integral Gain'
+    rtb_IntegralGain *= velocity_controller_P.reference_tracking_I;
 
-    // Signum: '<S30>/SignPreIntegrator'
+    // Signum: '<S32>/SignPreIntegrator'
     if (rtb_IntegralGain < 0.0) {
-      // DataTypeConversion: '<S30>/DataTypeConv2'
+      // DataTypeConversion: '<S32>/DataTypeConv2'
       tmp = -1.0;
     } else if (rtb_IntegralGain > 0.0) {
-      // DataTypeConversion: '<S30>/DataTypeConv2'
+      // DataTypeConversion: '<S32>/DataTypeConv2'
       tmp = 1.0;
     } else if (rtb_IntegralGain == 0.0) {
-      // DataTypeConversion: '<S30>/DataTypeConv2'
+      // DataTypeConversion: '<S32>/DataTypeConv2'
       tmp = 0.0;
     } else {
-      // DataTypeConversion: '<S30>/DataTypeConv2'
+      // DataTypeConversion: '<S32>/DataTypeConv2'
       tmp = (rtNaN);
     }
 
-    // End of Signum: '<S30>/SignPreIntegrator'
+    // End of Signum: '<S32>/SignPreIntegrator'
 
-    // DataTypeConversion: '<S30>/DataTypeConv2'
+    // DataTypeConversion: '<S32>/DataTypeConv2'
     if (rtIsNaN(tmp)) {
       tmp = 0.0;
     } else {
       tmp = fmod(tmp, 256.0);
     }
 
-    // DataTypeConversion: '<S30>/DataTypeConv2'
+    // DataTypeConversion: '<S32>/DataTypeConv2'
     velocity_controller_B.DataTypeConv2 = static_cast<int8_T>(tmp < 0.0 ?
       static_cast<int32_T>(static_cast<int8_T>(-static_cast<int8_T>(static_cast<
       uint8_T>(-tmp)))) : static_cast<int32_T>(static_cast<int8_T>
       (static_cast<uint8_T>(tmp))));
   }
 
-  // Signum: '<S30>/SignPreSat'
+  // Signum: '<S32>/SignPreSat'
   if (rtb_SignPreSat < 0.0) {
-    // DataTypeConversion: '<S30>/DataTypeConv1'
+    // DataTypeConversion: '<S32>/DataTypeConv1'
     tmp = -1.0;
   } else if (rtb_SignPreSat > 0.0) {
-    // DataTypeConversion: '<S30>/DataTypeConv1'
+    // DataTypeConversion: '<S32>/DataTypeConv1'
     tmp = 1.0;
   } else if (rtb_SignPreSat == 0.0) {
-    // DataTypeConversion: '<S30>/DataTypeConv1'
+    // DataTypeConversion: '<S32>/DataTypeConv1'
     tmp = 0.0;
   } else {
-    // DataTypeConversion: '<S30>/DataTypeConv1'
+    // DataTypeConversion: '<S32>/DataTypeConv1'
     tmp = (rtNaN);
   }
 
-  // End of Signum: '<S30>/SignPreSat'
+  // End of Signum: '<S32>/SignPreSat'
 
-  // DataTypeConversion: '<S30>/DataTypeConv1'
+  // DataTypeConversion: '<S32>/DataTypeConv1'
   if (rtIsNaN(tmp)) {
     tmp = 0.0;
   } else {
     tmp = fmod(tmp, 256.0);
   }
 
-  // Logic: '<S30>/AND3' incorporates:
-  //   DataTypeConversion: '<S30>/DataTypeConv1'
-  //   RelationalOperator: '<S30>/Equal1'
-  //   RelationalOperator: '<S30>/NotEqual'
+  // Logic: '<S32>/AND3' incorporates:
+  //   DataTypeConversion: '<S32>/DataTypeConv1'
+  //   RelationalOperator: '<S32>/Equal1'
+  //   RelationalOperator: '<S32>/NotEqual'
 
   velocity_controller_B.AND3 = ((rtb_ZeroGain != rtb_SignPreSat) && ((tmp < 0.0 ?
     static_cast<int32_T>(static_cast<int8_T>(-static_cast<int8_T>
     (static_cast<uint8_T>(-tmp)))) : static_cast<int32_T>(static_cast<int8_T>(
     static_cast<uint8_T>(tmp)))) == velocity_controller_B.DataTypeConv2));
   if (rtmIsMajorTimeStep(velocity_controller_M)) {
-    // Switch: '<S30>/Switch' incorporates:
-    //   Memory: '<S30>/Memory'
+    // Switch: '<S32>/Switch' incorporates:
+    //   Memory: '<S32>/Memory'
 
     if (velocity_controller_DW.Memory_PreviousInput) {
-      // Switch: '<S30>/Switch' incorporates:
-      //   Constant: '<S30>/Constant1'
+      // Switch: '<S32>/Switch' incorporates:
+      //   Constant: '<S32>/Constant1'
 
       velocity_controller_B.Switch = velocity_controller_P.Constant1_Value;
     } else {
-      // Switch: '<S30>/Switch'
+      // Switch: '<S32>/Switch'
       velocity_controller_B.Switch = rtb_IntegralGain;
     }
 
-    // End of Switch: '<S30>/Switch'
+    // End of Switch: '<S32>/Switch'
   }
 
   if (rtmIsMajorTimeStep(velocity_controller_M)) {
     if (rtmIsMajorTimeStep(velocity_controller_M)) {
-      // Update for Memory: '<S30>/Memory'
+      // Update for Memory: '<S32>/Memory'
       velocity_controller_DW.Memory_PreviousInput = velocity_controller_B.AND3;
     }
   }                                    // end MajorTimeStep
@@ -371,10 +371,10 @@ void velocity_controller_derivatives(void)
   XDot_velocity_controller_T *_rtXdot;
   _rtXdot = ((XDot_velocity_controller_T *) velocity_controller_M->derivs);
 
-  // Derivatives for Integrator: '<S39>/Integrator'
+  // Derivatives for Integrator: '<S41>/Integrator'
   _rtXdot->Integrator_CSTATE = velocity_controller_B.Switch;
 
-  // Derivatives for Integrator: '<S34>/Filter'
+  // Derivatives for Integrator: '<S36>/Filter'
   _rtXdot->Filter_CSTATE = velocity_controller_B.FilterCoefficient;
 }
 
@@ -437,28 +437,28 @@ void velocity_controller_initialize(void)
     static const char_T tmp_1[9] = { 'c', 'm', 'd', '_', 'a', 'c', 'c', 'e', 'l'
     };
 
-    // InitializeConditions for Integrator: '<S39>/Integrator'
+    // InitializeConditions for Integrator: '<S41>/Integrator'
     velocity_controller_X.Integrator_CSTATE =
-      velocity_controller_P.PIDController1_InitialConditi_h;
+      velocity_controller_P.reference_tracking_InitialCon_n;
 
-    // InitializeConditions for Integrator: '<S34>/Filter'
+    // InitializeConditions for Integrator: '<S36>/Filter'
     velocity_controller_X.Filter_CSTATE =
-      velocity_controller_P.PIDController1_InitialCondition;
+      velocity_controller_P.reference_tracking_InitialCondi;
 
-    // InitializeConditions for Memory: '<S30>/Memory'
+    // InitializeConditions for Memory: '<S32>/Memory'
     velocity_controller_DW.Memory_PreviousInput =
       velocity_controller_P.Memory_InitialCondition;
 
     // SystemInitialize for Atomic SubSystem: '<Root>/Subscribe1'
-    // SystemInitialize for Enabled SubSystem: '<S5>/Enabled Subsystem'
-    // SystemInitialize for Outport: '<S57>/Out1' incorporates:
-    //   Inport: '<S57>/In1'
+    // SystemInitialize for Enabled SubSystem: '<S4>/Enabled Subsystem'
+    // SystemInitialize for Outport: '<S7>/Out1' incorporates:
+    //   Inport: '<S7>/In1'
 
     velocity_controller_B.In1 = velocity_controller_P.Out1_Y0_h;
 
-    // End of SystemInitialize for SubSystem: '<S5>/Enabled Subsystem'
+    // End of SystemInitialize for SubSystem: '<S4>/Enabled Subsystem'
 
-    // Start for MATLABSystem: '<S5>/SourceBlock'
+    // Start for MATLABSystem: '<S4>/SourceBlock'
     velocity_controller_DW.obj_g.matlabCodegenIsDeleted = false;
     velocity_controller_DW.obj_g.isInitialized = 1;
     for (i = 0; i < 7; i++) {
@@ -469,19 +469,19 @@ void velocity_controller_initialize(void)
     Sub_velocity_controller_31.createSubscriber(&b_zeroDelimTopic[0], 1);
     velocity_controller_DW.obj_g.isSetupComplete = true;
 
-    // End of Start for MATLABSystem: '<S5>/SourceBlock'
+    // End of Start for MATLABSystem: '<S4>/SourceBlock'
     // End of SystemInitialize for SubSystem: '<Root>/Subscribe1'
 
     // SystemInitialize for Atomic SubSystem: '<Root>/Subscribe'
-    // SystemInitialize for Enabled SubSystem: '<S4>/Enabled Subsystem'
-    // SystemInitialize for Outport: '<S56>/Out1' incorporates:
-    //   Inport: '<S56>/In1'
+    // SystemInitialize for Enabled SubSystem: '<S3>/Enabled Subsystem'
+    // SystemInitialize for Outport: '<S6>/Out1' incorporates:
+    //   Inport: '<S6>/In1'
 
     velocity_controller_B.In1_d = velocity_controller_P.Out1_Y0;
 
-    // End of SystemInitialize for SubSystem: '<S4>/Enabled Subsystem'
+    // End of SystemInitialize for SubSystem: '<S3>/Enabled Subsystem'
 
-    // Start for MATLABSystem: '<S4>/SourceBlock'
+    // Start for MATLABSystem: '<S3>/SourceBlock'
     velocity_controller_DW.obj_n.matlabCodegenIsDeleted = false;
     velocity_controller_DW.obj_n.isInitialized = 1;
     for (i = 0; i < 11; i++) {
@@ -492,11 +492,11 @@ void velocity_controller_initialize(void)
     Sub_velocity_controller_10.createSubscriber(&b_zeroDelimTopic_0[0], 1);
     velocity_controller_DW.obj_n.isSetupComplete = true;
 
-    // End of Start for MATLABSystem: '<S4>/SourceBlock'
+    // End of Start for MATLABSystem: '<S3>/SourceBlock'
     // End of SystemInitialize for SubSystem: '<Root>/Subscribe'
 
     // SystemInitialize for Atomic SubSystem: '<Root>/Publish'
-    // Start for MATLABSystem: '<S3>/SinkBlock'
+    // Start for MATLABSystem: '<S2>/SinkBlock'
     velocity_controller_DW.obj.matlabCodegenIsDeleted = false;
     velocity_controller_DW.obj.isInitialized = 1;
     for (i = 0; i < 9; i++) {
@@ -507,7 +507,7 @@ void velocity_controller_initialize(void)
     Pub_velocity_controller_3.createPublisher(&b_zeroDelimTopic_1[0], 1);
     velocity_controller_DW.obj.isSetupComplete = true;
 
-    // End of Start for MATLABSystem: '<S3>/SinkBlock'
+    // End of Start for MATLABSystem: '<S2>/SinkBlock'
     // End of SystemInitialize for SubSystem: '<Root>/Publish'
   }
 }
@@ -516,30 +516,30 @@ void velocity_controller_initialize(void)
 void velocity_controller_terminate(void)
 {
   // Terminate for Atomic SubSystem: '<Root>/Subscribe1'
-  // Terminate for MATLABSystem: '<S5>/SourceBlock'
+  // Terminate for MATLABSystem: '<S4>/SourceBlock'
   if (!velocity_controller_DW.obj_g.matlabCodegenIsDeleted) {
     velocity_controller_DW.obj_g.matlabCodegenIsDeleted = true;
   }
 
-  // End of Terminate for MATLABSystem: '<S5>/SourceBlock'
+  // End of Terminate for MATLABSystem: '<S4>/SourceBlock'
   // End of Terminate for SubSystem: '<Root>/Subscribe1'
 
   // Terminate for Atomic SubSystem: '<Root>/Subscribe'
-  // Terminate for MATLABSystem: '<S4>/SourceBlock'
+  // Terminate for MATLABSystem: '<S3>/SourceBlock'
   if (!velocity_controller_DW.obj_n.matlabCodegenIsDeleted) {
     velocity_controller_DW.obj_n.matlabCodegenIsDeleted = true;
   }
 
-  // End of Terminate for MATLABSystem: '<S4>/SourceBlock'
+  // End of Terminate for MATLABSystem: '<S3>/SourceBlock'
   // End of Terminate for SubSystem: '<Root>/Subscribe'
 
   // Terminate for Atomic SubSystem: '<Root>/Publish'
-  // Terminate for MATLABSystem: '<S3>/SinkBlock'
+  // Terminate for MATLABSystem: '<S2>/SinkBlock'
   if (!velocity_controller_DW.obj.matlabCodegenIsDeleted) {
     velocity_controller_DW.obj.matlabCodegenIsDeleted = true;
   }
 
-  // End of Terminate for MATLABSystem: '<S3>/SinkBlock'
+  // End of Terminate for MATLABSystem: '<S2>/SinkBlock'
   // End of Terminate for SubSystem: '<Root>/Publish'
 }
 
