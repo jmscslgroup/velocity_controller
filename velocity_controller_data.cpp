@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.36
+// Model version                  : 1.42
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Tue Jun  1 11:17:05 2021
+// C/C++ source code generated on : Sun Jul 18 21:01:03 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -21,52 +21,8 @@
 
 // Block parameters (default storage)
 P_velocity_controller_T velocity_controller_P = {
-  // Mask Parameter: PIDController1_D
-  //  Referenced by: '<S33>/Derivative Gain'
-
-  1.14032900506104,
-
-  // Mask Parameter: PIDController1_I
-  //  Referenced by: '<S36>/Integral Gain'
-
-  0.134074922947779,
-
-  // Mask Parameter: PIDController1_InitialCondition
-  //  Referenced by: '<S34>/Filter'
-
-  0.0,
-
-  // Mask Parameter: PIDController1_InitialConditi_h
-  //  Referenced by: '<S39>/Integrator'
-
-  0.0,
-
-  // Mask Parameter: PIDController1_LowerSaturationL
-  //  Referenced by:
-  //    '<S46>/Saturation'
-  //    '<S32>/DeadZone'
-
-  -3.0,
-
-  // Mask Parameter: PIDController1_N
-  //  Referenced by: '<S42>/Filter Coefficient'
-
-  2.31488315878784,
-
-  // Mask Parameter: PIDController1_P
-  //  Referenced by: '<S44>/Proportional Gain'
-
-  1.0467641274631,
-
-  // Mask Parameter: PIDController1_UpperSaturationL
-  //  Referenced by:
-  //    '<S46>/Saturation'
-  //    '<S32>/DeadZone'
-
-  1.5,
-
   // Computed Parameter: Out1_Y0
-  //  Referenced by: '<S56>/Out1'
+  //  Referenced by: '<S29>/Out1'
 
   {
     {
@@ -99,8 +55,8 @@ P_velocity_controller_T velocity_controller_P = {
     }                                  // Angular
   },
 
-  // Computed Parameter: Out1_Y0_h
-  //  Referenced by: '<S57>/Out1'
+  // Computed Parameter: Out1_Y0_o
+  //  Referenced by: '<S30>/Out1'
 
   {
     {
@@ -116,7 +72,7 @@ P_velocity_controller_T velocity_controller_P = {
     }                                  // Angular
   },
 
-  // Computed Parameter: Constant_Value_j
+  // Computed Parameter: Constant_Value_m
   //  Referenced by: '<S5>/Constant'
 
   {
@@ -133,37 +89,156 @@ P_velocity_controller_T velocity_controller_P = {
     }                                  // Angular
   },
 
-  // Computed Parameter: Constant_Value_d
+  // Computed Parameter: Constant_Value_g
   //  Referenced by: '<S1>/Constant'
 
   {
     0.0                                // Data
   },
 
-  // Expression: 0
-  //  Referenced by: '<S30>/Constant1'
+  // Computed Parameter: Out1_Y0_c
+  //  Referenced by: '<S31>/Out1'
+
+  {
+    0.0                                // Data
+  },
+
+  // Computed Parameter: Constant_Value_gl
+  //  Referenced by: '<S6>/Constant'
+
+  {
+    0.0                                // Data
+  },
+
+  // Expression: lastx+xoff
+  //  Referenced by: '<S7>/last_x'
+
+  { 0.0, 0.0, 0.0 },
+
+  // Expression: lastu+uoff
+  //  Referenced by: '<S7>/last_mv'
 
   0.0,
 
-  // Expression: 1.5
-  //  Referenced by: '<Root>/Saturation'
-
-  1.5,
-
-  // Expression: -3
-  //  Referenced by: '<Root>/Saturation'
-
-  -3.0,
-
   // Expression: 0
-  //  Referenced by: '<S30>/ZeroGain'
+  //  Referenced by: '<Root>/Constant'
 
   0.0,
 
-  // Computed Parameter: Memory_InitialCondition
-  //  Referenced by: '<S30>/Memory'
+  // Expression: zeros(1,1)
+  //  Referenced by: '<S2>/md_zero'
 
-  0
+  0.0,
+
+  // Expression: zeros(1,1)
+  //  Referenced by: '<S2>/umin_zero'
+
+  0.0,
+
+  // Expression: zeros(1,1)
+  //  Referenced by: '<S2>/umax_zero'
+
+  0.0,
+
+  // Expression: zeros(2,1)
+  //  Referenced by: '<S2>/ymin_zero'
+
+  { 0.0, 0.0 },
+
+  // Expression: zeros(2,1)
+  //  Referenced by: '<S2>/ymax_zero'
+
+  { 0.0, 0.0 },
+
+  // Expression: zeros(1,1)
+  //  Referenced by: '<S2>/E_zero'
+
+  0.0,
+
+  // Expression: MVscale(:,ones(1,max(nCC,1)))'
+  //  Referenced by: '<S7>/umin_scale4'
+
+  1.0,
+
+  // Expression: zeros(1,2)
+  //  Referenced by: '<S2>/F_zero'
+
+  { 0.0, 0.0 },
+
+  // Expression: Yscale(:,ones(1,max(nCC,1)))'
+  //  Referenced by: '<S7>/ymin_scale1'
+
+  { 1.0, 1.0 },
+
+  // Expression: zeros(1,1)
+  //  Referenced by: '<S2>/G_zero'
+
+  0.0,
+
+  // Expression: zeros(1,1)
+  //  Referenced by: '<S2>/S_zero'
+
+  0.0,
+
+  // Expression: MDscale(:,ones(1,max(nCC,1)))'
+  //  Referenced by: '<S7>/ymin_scale2'
+
+  1.0,
+
+  // Expression: zeros(1,1)
+  //  Referenced by: '<S2>/switch_zero'
+
+  0.0,
+
+  // Expression: zeros(1,1)
+  //  Referenced by: '<S2>/ext.mv_zero'
+
+  0.0,
+
+  // Expression: RMVscale
+  //  Referenced by: '<S7>/ext.mv_scale'
+
+  1.0,
+
+  // Expression: zeros(1,1)
+  //  Referenced by: '<S2>/mv.target_zero'
+
+  0.0,
+
+  // Expression: RMVscale
+  //  Referenced by: '<S7>/ext.mv_scale1'
+
+  1.0,
+
+  // Expression: zeros(2,1)
+  //  Referenced by: '<S2>/y.wt_zero'
+
+  { 0.0, 0.0 },
+
+  // Expression: zeros(1,1)
+  //  Referenced by: '<S2>/u.wt_zero'
+
+  0.0,
+
+  // Expression: zeros(1,1)
+  //  Referenced by: '<S2>/du.wt_zero'
+
+  0.0,
+
+  // Expression: zeros(1,1)
+  //  Referenced by: '<S2>/ecr.wt_zero'
+
+  0.0,
+
+  // Expression: MVscale
+  //  Referenced by: '<S7>/umin_scale1'
+
+  1.0,
+
+  // Expression: iA
+  //  Referenced by: '<S7>/Memory'
+
+  { 0, 0, 0, 0 }
 };
 
 //

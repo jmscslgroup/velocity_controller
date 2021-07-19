@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.36
+// Model version                  : 1.42
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Tue Jun  1 11:17:05 2021
+// C/C++ source code generated on : Sun Jul 18 21:01:03 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -20,21 +20,7 @@
 #define RTW_HEADER_velocity_controller_private_h_
 #include "rtwtypes.h"
 
-// Private macros used by the generated code to access rtModel
-#ifndef rtmIsMajorTimeStep
-#define rtmIsMajorTimeStep(rtm)        (((rtm)->Timing.simTimeStep) == MAJOR_TIME_STEP)
-#endif
-
-#ifndef rtmIsMinorTimeStep
-#define rtmIsMinorTimeStep(rtm)        (((rtm)->Timing.simTimeStep) == MINOR_TIME_STEP)
-#endif
-
-#ifndef rtmSetTPtr
-#define rtmSetTPtr(rtm, val)           ((rtm)->Timing.t = (val))
-#endif
-
-// private model entry point functions
-extern void velocity_controller_derivatives(void);
+extern real_T rt_hypotd_snf(real_T u0, real_T u1);
 
 #endif                             // RTW_HEADER_velocity_controller_private_h_
 

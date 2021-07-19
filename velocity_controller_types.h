@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.36
+// Model version                  : 1.42
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Tue Jun  1 11:17:05 2021
+// C/C++ source code generated on : Sun Jul 18 21:01:03 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -56,6 +56,46 @@ struct SL_Bus_velocity_controller_geometry_msgs_Twist
 
   // MsgType=geometry_msgs/Vector3
   SL_Bus_velocity_controller_geometry_msgs_Vector3 Angular;
+};
+
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_struct_qYRJtcce7MM7XuQ3AAWdMD_
+#define DEFINED_TYPEDEF_FOR_struct_qYRJtcce7MM7XuQ3AAWdMD_
+
+struct struct_qYRJtcce7MM7XuQ3AAWdMD
+{
+  real_T MaxIterations;
+  real_T ConstraintTolerance;
+  boolean_T UseWarmStart;
+};
+
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_struct_SmvKLCDySlKdToNTroAGyF_
+#define DEFINED_TYPEDEF_FOR_struct_SmvKLCDySlKdToNTroAGyF_
+
+struct struct_SmvKLCDySlKdToNTroAGyF
+{
+  real_T MaxIterations;
+  real_T ConstraintTolerance;
+  real_T OptimalityTolerance;
+  real_T ComplementarityTolerance;
+  real_T StepTolerance;
+};
+
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_struct_aH4cViuPz8aZIf26PeppuD_
+#define DEFINED_TYPEDEF_FOR_struct_aH4cViuPz8aZIf26PeppuD_
+
+struct struct_aH4cViuPz8aZIf26PeppuD
+{
+  real_T MaxIterations;
+  real_T ConstraintTolerance;
+  real_T DiscreteConstraintTolerance;
+  boolean_T RoundingAtRootNode;
+  real_T MaxPendingNodes;
 };
 
 #endif

@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.36
+// Model version                  : 1.42
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Tue Jun  1 11:17:05 2021
+// C/C++ source code generated on : Sun Jul 18 21:01:03 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -19,6 +19,11 @@
 #ifndef RTW_HEADER_rtmodel_h_
 #define RTW_HEADER_rtmodel_h_
 #include "velocity_controller.h"
+
+// Macros generated for backwards compatibility
+#ifndef rtmGetStopRequested
+#define rtmGetStopRequested(rtm)       ((void*) 0)
+#endif
 #endif                                 // RTW_HEADER_rtmodel_h_
 
 //
