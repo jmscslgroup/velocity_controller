@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.37
+// Model version                  : 1.39
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Mon Jul 19 14:05:28 2021
+// C/C++ source code generated on : Thu Jul 22 18:37:40 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -22,51 +22,56 @@
 // Block parameters (default storage)
 P_velocity_controller_T velocity_controller_P = {
   // Mask Parameter: reference_tracking_D
-  //  Referenced by: '<S35>/Derivative Gain'
+  //  Referenced by: '<S37>/Derivative Gain'
 
   1.33981022316214,
 
   // Mask Parameter: reference_tracking_I
-  //  Referenced by: '<S38>/Integral Gain'
+  //  Referenced by: '<S40>/Integral Gain'
 
   0.0655731064858092,
 
   // Mask Parameter: reference_tracking_InitialCondi
-  //  Referenced by: '<S36>/Filter'
+  //  Referenced by: '<S38>/Filter'
 
   0.0,
 
   // Mask Parameter: reference_tracking_InitialCon_n
-  //  Referenced by: '<S41>/Integrator'
+  //  Referenced by: '<S43>/Integrator'
 
   0.0,
 
+  // Mask Parameter: reference_tracking_Kt
+  //  Referenced by: '<S54>/Kt'
+
+  1.0,
+
   // Mask Parameter: reference_tracking_LowerSaturat
   //  Referenced by:
-  //    '<S48>/Saturation'
-  //    '<S34>/DeadZone'
+  //    '<S50>/Saturation'
+  //    '<S36>/DeadZone'
 
   -3.0,
 
   // Mask Parameter: reference_tracking_N
-  //  Referenced by: '<S44>/Filter Coefficient'
+  //  Referenced by: '<S46>/Filter Coefficient'
 
   7.54853219511638,
 
   // Mask Parameter: reference_tracking_P
-  //  Referenced by: '<S46>/Proportional Gain'
+  //  Referenced by: '<S48>/Proportional Gain'
 
   2.71967723043159,
 
   // Mask Parameter: reference_tracking_UpperSaturat
   //  Referenced by:
-  //    '<S48>/Saturation'
-  //    '<S34>/DeadZone'
+  //    '<S50>/Saturation'
+  //    '<S36>/DeadZone'
 
   1.5,
 
   // Computed Parameter: Out1_Y0
-  //  Referenced by: '<S6>/Out1'
+  //  Referenced by: '<S7>/Out1'
 
   {
     {
@@ -100,7 +105,7 @@ P_velocity_controller_T velocity_controller_P = {
   },
 
   // Computed Parameter: Out1_Y0_h
-  //  Referenced by: '<S7>/Out1'
+  //  Referenced by: '<S8>/Out1'
 
   {
     {
@@ -140,8 +145,22 @@ P_velocity_controller_T velocity_controller_P = {
     0.0                                // Data
   },
 
+  // Computed Parameter: Out1_Y0_i
+  //  Referenced by: '<S9>/Out1'
+
+  {
+    0.0                                // Data
+  },
+
+  // Computed Parameter: Constant_Value_b
+  //  Referenced by: '<S5>/Constant'
+
+  {
+    0.0                                // Data
+  },
+
   // Expression: 0
-  //  Referenced by: '<S32>/Constant1'
+  //  Referenced by: '<S34>/Constant1'
 
   0.0,
 
@@ -156,12 +175,12 @@ P_velocity_controller_T velocity_controller_P = {
   -3.0,
 
   // Expression: 0
-  //  Referenced by: '<S32>/ZeroGain'
+  //  Referenced by: '<S34>/ZeroGain'
 
   0.0,
 
   // Computed Parameter: Memory_InitialCondition
-  //  Referenced by: '<S32>/Memory'
+  //  Referenced by: '<S34>/Memory'
 
   0
 };
