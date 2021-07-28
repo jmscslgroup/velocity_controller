@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.42
+// Model version                  : 1.44
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Sun Jul 18 21:01:03 2021
+// C/C++ source code generated on : Tue Jul 27 23:58:40 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -1646,16 +1646,15 @@ void velocity_controller_initialize(void)
   {
     int32_T i;
     char_T b_zeroDelimTopic[12];
-    char_T b_zeroDelimTopic_1[11];
     char_T b_zeroDelimTopic_2[10];
-    char_T b_zeroDelimTopic_0[7];
+    char_T b_zeroDelimTopic_1[8];
+    char_T b_zeroDelimTopic_0[6];
     static const char_T tmp[11] = { 'v', 'e', 'h', 'i', 'c', 'l', 'e', '/', 'v',
       'e', 'l' };
 
-    static const char_T tmp_0[6] = { '/', 'a', 'c', 'c', 'e', 'l' };
+    static const char_T tmp_0[5] = { 'a', 'c', 'c', 'e', 'l' };
 
-    static const char_T tmp_1[10] = { '/', 'g', 'h', 'o', 's', 't', '/', 'v',
-      'e', 'l' };
+    static const char_T tmp_1[7] = { 'c', 'm', 'd', '_', 'v', 'e', 'l' };
 
     static const char_T tmp_2[9] = { 'c', 'm', 'd', '_', 'a', 'c', 'c', 'e', 'l'
     };
@@ -1717,11 +1716,11 @@ void velocity_controller_initialize(void)
     // Start for MATLABSystem: '<S6>/SourceBlock'
     velocity_controller_DW.obj_d.matlabCodegenIsDeleted = false;
     velocity_controller_DW.obj_d.isInitialized = 1;
-    for (i = 0; i < 6; i++) {
+    for (i = 0; i < 5; i++) {
       b_zeroDelimTopic_0[i] = tmp_0[i];
     }
 
-    b_zeroDelimTopic_0[6] = '\x00';
+    b_zeroDelimTopic_0[5] = '\x00';
     Sub_velocity_controller_44.createSubscriber(&b_zeroDelimTopic_0[0], 1);
     velocity_controller_DW.obj_d.isSetupComplete = true;
 
@@ -1740,11 +1739,11 @@ void velocity_controller_initialize(void)
     // Start for MATLABSystem: '<S5>/SourceBlock'
     velocity_controller_DW.obj_f.matlabCodegenIsDeleted = false;
     velocity_controller_DW.obj_f.isInitialized = 1;
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i < 7; i++) {
       b_zeroDelimTopic_1[i] = tmp_1[i];
     }
 
-    b_zeroDelimTopic_1[10] = '\x00';
+    b_zeroDelimTopic_1[7] = '\x00';
     Sub_velocity_controller_43.createSubscriber(&b_zeroDelimTopic_1[0], 1);
     velocity_controller_DW.obj_f.isSetupComplete = true;
 
