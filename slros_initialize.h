@@ -14,7 +14,7 @@ extern SimulinkSubscriber<geometry_msgs::Twist, SL_Bus_velocity_controller_geome
 extern SimulinkSubscriber<geometry_msgs::Twist, SL_Bus_velocity_controller_geometry_msgs_Twist> Sub_velocity_controller_31;
 
 // For Block velocity_controller/Subscribe2
-extern SimulinkSubscriber<std_msgs::Float64, SL_Bus_velocity_controller_std_msgs_Float64> Sub_velocity_controller_35;
+extern SimulinkSubscriber<std_msgs::Bool, SL_Bus_velocity_controller_std_msgs_Bool> Sub_velocity_controller_40;
 
 // For Block velocity_controller/Publish
 extern SimulinkPublisher<std_msgs::Float64, SL_Bus_velocity_controller_std_msgs_Float64> Pub_velocity_controller_3;

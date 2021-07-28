@@ -52,6 +52,7 @@ add_executable(${PROJECT_NAME}_node
    rtGetInf.cpp
    rtGetNaN.cpp
    rt_nonfinite.cpp
+   rt_zcfcn.cpp
    velocity_controller.cpp
    velocity_controller_data.cpp
    rosnodeinterface.cpp

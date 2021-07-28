@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.39
+// Model version                  : 1.44
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Thu Jul 22 18:37:40 2021
+// C/C++ source code generated on : Wed Jul 28 10:48:01 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -19,6 +19,7 @@
 #ifndef RTW_HEADER_velocity_controller_private_h_
 #define RTW_HEADER_velocity_controller_private_h_
 #include "rtwtypes.h"
+#include "zero_crossing_types.h"
 
 // Private macros used by the generated code to access rtModel
 #ifndef rtmIsMajorTimeStep
