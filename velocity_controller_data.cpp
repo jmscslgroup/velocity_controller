@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.44
+// Model version                  : 1.46
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Tue Jul 27 23:58:40 2021
+// C/C++ source code generated on : Sun Aug  1 14:47:25 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -22,40 +22,6 @@
 // Block parameters (default storage)
 P_velocity_controller_T velocity_controller_P = {
   // Computed Parameter: Out1_Y0
-  //  Referenced by: '<S29>/Out1'
-
-  {
-    {
-      0.0,                             // X
-      0.0,                             // Y
-      0.0                              // Z
-    },                                 // Linear
-
-    {
-      0.0,                             // X
-      0.0,                             // Y
-      0.0                              // Z
-    }                                  // Angular
-  },
-
-  // Computed Parameter: Constant_Value
-  //  Referenced by: '<S4>/Constant'
-
-  {
-    {
-      0.0,                             // X
-      0.0,                             // Y
-      0.0                              // Z
-    },                                 // Linear
-
-    {
-      0.0,                             // X
-      0.0,                             // Y
-      0.0                              // Z
-    }                                  // Angular
-  },
-
-  // Computed Parameter: Out1_Y0_o
   //  Referenced by: '<S30>/Out1'
 
   {
@@ -72,8 +38,42 @@ P_velocity_controller_T velocity_controller_P = {
     }                                  // Angular
   },
 
-  // Computed Parameter: Constant_Value_m
+  // Computed Parameter: Constant_Value
   //  Referenced by: '<S5>/Constant'
+
+  {
+    {
+      0.0,                             // X
+      0.0,                             // Y
+      0.0                              // Z
+    },                                 // Linear
+
+    {
+      0.0,                             // X
+      0.0,                             // Y
+      0.0                              // Z
+    }                                  // Angular
+  },
+
+  // Computed Parameter: Out1_Y0_o
+  //  Referenced by: '<S31>/Out1'
+
+  {
+    {
+      0.0,                             // X
+      0.0,                             // Y
+      0.0                              // Z
+    },                                 // Linear
+
+    {
+      0.0,                             // X
+      0.0,                             // Y
+      0.0                              // Z
+    }                                  // Angular
+  },
+
+  // Computed Parameter: Constant_Value_m
+  //  Referenced by: '<S6>/Constant'
 
   {
     {
@@ -97,26 +97,26 @@ P_velocity_controller_T velocity_controller_P = {
   },
 
   // Computed Parameter: Out1_Y0_c
-  //  Referenced by: '<S31>/Out1'
+  //  Referenced by: '<S32>/Out1'
 
   {
     0.0                                // Data
   },
 
   // Computed Parameter: Constant_Value_gl
-  //  Referenced by: '<S6>/Constant'
+  //  Referenced by: '<S7>/Constant'
 
   {
     0.0                                // Data
   },
 
   // Expression: lastx+xoff
-  //  Referenced by: '<S7>/last_x'
+  //  Referenced by: '<S8>/last_x'
 
   { 0.0, 0.0, 0.0 },
 
   // Expression: lastu+uoff
-  //  Referenced by: '<S7>/last_mv'
+  //  Referenced by: '<S8>/last_mv'
 
   0.0,
 
@@ -126,117 +126,117 @@ P_velocity_controller_T velocity_controller_P = {
   0.0,
 
   // Expression: zeros(1,1)
-  //  Referenced by: '<S2>/md_zero'
+  //  Referenced by: '<S3>/md_zero'
 
   0.0,
 
   // Expression: zeros(1,1)
-  //  Referenced by: '<S2>/umin_zero'
+  //  Referenced by: '<S3>/umin_zero'
 
   0.0,
 
   // Expression: zeros(1,1)
-  //  Referenced by: '<S2>/umax_zero'
+  //  Referenced by: '<S3>/umax_zero'
 
   0.0,
 
   // Expression: zeros(2,1)
-  //  Referenced by: '<S2>/ymin_zero'
+  //  Referenced by: '<S3>/ymin_zero'
 
   { 0.0, 0.0 },
 
   // Expression: zeros(2,1)
-  //  Referenced by: '<S2>/ymax_zero'
+  //  Referenced by: '<S3>/ymax_zero'
 
   { 0.0, 0.0 },
 
   // Expression: zeros(1,1)
-  //  Referenced by: '<S2>/E_zero'
+  //  Referenced by: '<S3>/E_zero'
 
   0.0,
 
   // Expression: MVscale(:,ones(1,max(nCC,1)))'
-  //  Referenced by: '<S7>/umin_scale4'
+  //  Referenced by: '<S8>/umin_scale4'
 
   1.0,
 
   // Expression: zeros(1,2)
-  //  Referenced by: '<S2>/F_zero'
+  //  Referenced by: '<S3>/F_zero'
 
   { 0.0, 0.0 },
 
   // Expression: Yscale(:,ones(1,max(nCC,1)))'
-  //  Referenced by: '<S7>/ymin_scale1'
+  //  Referenced by: '<S8>/ymin_scale1'
 
   { 1.0, 1.0 },
 
   // Expression: zeros(1,1)
-  //  Referenced by: '<S2>/G_zero'
+  //  Referenced by: '<S3>/G_zero'
 
   0.0,
 
   // Expression: zeros(1,1)
-  //  Referenced by: '<S2>/S_zero'
+  //  Referenced by: '<S3>/S_zero'
 
   0.0,
 
   // Expression: MDscale(:,ones(1,max(nCC,1)))'
-  //  Referenced by: '<S7>/ymin_scale2'
+  //  Referenced by: '<S8>/ymin_scale2'
 
   1.0,
 
   // Expression: zeros(1,1)
-  //  Referenced by: '<S2>/switch_zero'
+  //  Referenced by: '<S3>/switch_zero'
 
   0.0,
 
   // Expression: zeros(1,1)
-  //  Referenced by: '<S2>/ext.mv_zero'
+  //  Referenced by: '<S3>/ext.mv_zero'
 
   0.0,
 
   // Expression: RMVscale
-  //  Referenced by: '<S7>/ext.mv_scale'
+  //  Referenced by: '<S8>/ext.mv_scale'
 
   1.0,
 
   // Expression: zeros(1,1)
-  //  Referenced by: '<S2>/mv.target_zero'
+  //  Referenced by: '<S3>/mv.target_zero'
 
   0.0,
 
   // Expression: RMVscale
-  //  Referenced by: '<S7>/ext.mv_scale1'
+  //  Referenced by: '<S8>/ext.mv_scale1'
 
   1.0,
 
   // Expression: zeros(2,1)
-  //  Referenced by: '<S2>/y.wt_zero'
+  //  Referenced by: '<S3>/y.wt_zero'
 
   { 0.0, 0.0 },
 
   // Expression: zeros(1,1)
-  //  Referenced by: '<S2>/u.wt_zero'
+  //  Referenced by: '<S3>/u.wt_zero'
 
   0.0,
 
   // Expression: zeros(1,1)
-  //  Referenced by: '<S2>/du.wt_zero'
+  //  Referenced by: '<S3>/du.wt_zero'
 
   0.0,
 
   // Expression: zeros(1,1)
-  //  Referenced by: '<S2>/ecr.wt_zero'
+  //  Referenced by: '<S3>/ecr.wt_zero'
 
   0.0,
 
   // Expression: MVscale
-  //  Referenced by: '<S7>/umin_scale1'
+  //  Referenced by: '<S8>/umin_scale1'
 
   1.0,
 
   // Expression: iA
-  //  Referenced by: '<S7>/Memory'
+  //  Referenced by: '<S8>/Memory'
 
   { 0, 0, 0, 0 }
 };

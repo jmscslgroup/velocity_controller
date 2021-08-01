@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.44
+// Model version                  : 1.46
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Tue Jul 27 23:58:40 2021
+// C/C++ source code generated on : Sun Aug  1 14:47:25 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -58,7 +58,7 @@ static void velocity_controller_qpkwik(const real_T b_Linv[9], const real_T
   int16_T iA[4], int16_T maxiter, real_T FeasTol, real_T x[3], real_T lambda[4],
   real_T *status);
 
-// Function for MATLAB Function: '<S27>/optimizer'
+// Function for MATLAB Function: '<S28>/optimizer'
 static void velocity_controll_Unconstrained(const real_T b_Hinv[9], const real_T
   f[3], real_T x[3], int16_T n)
 {
@@ -70,7 +70,7 @@ static void velocity_controll_Unconstrained(const real_T b_Hinv[9], const real_T
   }
 }
 
-// Function for MATLAB Function: '<S27>/optimizer'
+// Function for MATLAB Function: '<S28>/optimizer'
 static real_T velocity_controller_norm(const real_T x[3])
 {
   real_T absxk;
@@ -110,7 +110,7 @@ static real_T velocity_controller_norm(const real_T x[3])
   return scale * sqrt(y);
 }
 
-// Function for MATLAB Function: '<S27>/optimizer'
+// Function for MATLAB Function: '<S28>/optimizer'
 static void velocity_controller_abs(const real_T x[3], real_T y[3])
 {
   y[0] = fabs(x[0]);
@@ -118,7 +118,7 @@ static void velocity_controller_abs(const real_T x[3], real_T y[3])
   y[2] = fabs(x[2]);
 }
 
-// Function for MATLAB Function: '<S27>/optimizer'
+// Function for MATLAB Function: '<S28>/optimizer'
 static real_T velocity_controller_maximum(const real_T x[3])
 {
   real_T ex;
@@ -157,7 +157,7 @@ static real_T velocity_controller_maximum(const real_T x[3])
   return ex;
 }
 
-// Function for MATLAB Function: '<S27>/optimizer'
+// Function for MATLAB Function: '<S28>/optimizer'
 static void velocity_controller_abs_j(const real_T x[4], real_T y[4])
 {
   y[0] = fabs(x[0]);
@@ -166,7 +166,7 @@ static void velocity_controller_abs_j(const real_T x[4], real_T y[4])
   y[3] = fabs(x[3]);
 }
 
-// Function for MATLAB Function: '<S27>/optimizer'
+// Function for MATLAB Function: '<S28>/optimizer'
 static void velocity_controller_maximum2(const real_T x[4], real_T y, real_T ex
   [4])
 {
@@ -197,7 +197,7 @@ static void velocity_controller_maximum2(const real_T x[4], real_T y, real_T ex
   }
 }
 
-// Function for MATLAB Function: '<S27>/optimizer'
+// Function for MATLAB Function: '<S28>/optimizer'
 static real_T velocity_controller_xnrm2(int32_T n, const real_T x[9], int32_T
   ix0)
 {
@@ -251,7 +251,7 @@ real_T rt_hypotd_snf(real_T u0, real_T u1)
   return y;
 }
 
-// Function for MATLAB Function: '<S27>/optimizer'
+// Function for MATLAB Function: '<S28>/optimizer'
 static void velocity_controller_xgemv(int32_T b_m, int32_T n, const real_T b_A[9],
   int32_T ia0, const real_T x[9], int32_T ix0, real_T y[3])
 {
@@ -283,7 +283,7 @@ static void velocity_controller_xgemv(int32_T b_m, int32_T n, const real_T b_A[9
   }
 }
 
-// Function for MATLAB Function: '<S27>/optimizer'
+// Function for MATLAB Function: '<S28>/optimizer'
 static void velocity_controller_xgerc(int32_T b_m, int32_T n, real_T alpha1,
   int32_T ix0, const real_T y[3], real_T b_A[9], int32_T ia0)
 {
@@ -313,7 +313,7 @@ static void velocity_controller_xgerc(int32_T b_m, int32_T n, real_T alpha1,
   }
 }
 
-// Function for MATLAB Function: '<S27>/optimizer'
+// Function for MATLAB Function: '<S28>/optimizer'
 static void velocity_controller_qr(const real_T b_A[9], real_T Q[9], real_T R[9])
 {
   int32_T b_coltop;
@@ -643,7 +643,7 @@ static void velocity_controller_qr(const real_T b_A[9], real_T Q[9], real_T R[9]
   }
 }
 
-// Function for MATLAB Function: '<S27>/optimizer'
+// Function for MATLAB Function: '<S28>/optimizer'
 static void velocity_controller_KWIKfactor(const real_T b_Ac[12], const int16_T
   iC[4], int16_T nA, const real_T b_Linv[9], real_T D[9], real_T b_H[9], int16_T
   n, real_T RLinv[9], real_T *Status)
@@ -791,13 +791,13 @@ static void velocity_controller_KWIKfactor(const real_T b_Ac[12], const int16_T
   } while (exitg1 == 0);
 }
 
-// Function for MATLAB Function: '<S27>/optimizer'
+// Function for MATLAB Function: '<S28>/optimizer'
 static real_T velocity_controller_mtimes(const real_T b_A[3], const real_T B[3])
 {
   return (b_A[0] * B[0] + b_A[1] * B[1]) + b_A[2] * B[2];
 }
 
-// Function for MATLAB Function: '<S27>/optimizer'
+// Function for MATLAB Function: '<S28>/optimizer'
 static void velocity_control_DropConstraint(int16_T kDrop, int16_T iA[4],
   int16_T *nA, int16_T iC[4])
 {
@@ -825,7 +825,7 @@ static void velocity_control_DropConstraint(int16_T kDrop, int16_T iA[4],
   *nA = static_cast<int16_T>(tmp);
 }
 
-// Function for MATLAB Function: '<S27>/optimizer'
+// Function for MATLAB Function: '<S28>/optimizer'
 static void velocity_controller_qpkwik(const real_T b_Linv[9], const real_T
   b_Hinv[9], const real_T f[3], const real_T b_Ac[12], const real_T b[4],
   int16_T iA[4], int16_T maxiter, real_T FeasTol, real_T x[3], real_T lambda[4],
@@ -1452,21 +1452,21 @@ void velocity_controller_step(void)
     0.045396132984354028 };
 
   // Outputs for Atomic SubSystem: '<Root>/Subscribe2'
-  // MATLABSystem: '<S4>/SourceBlock' incorporates:
-  //   Inport: '<S29>/In1'
+  // MATLABSystem: '<S5>/SourceBlock' incorporates:
+  //   Inport: '<S30>/In1'
 
   b_varargout_1 = Sub_velocity_controller_51.getLatestMessage
     (&velocity_controller_B.b_varargout_2);
 
-  // Outputs for Enabled SubSystem: '<S4>/Enabled Subsystem' incorporates:
-  //   EnablePort: '<S29>/Enable'
+  // Outputs for Enabled SubSystem: '<S5>/Enabled Subsystem' incorporates:
+  //   EnablePort: '<S30>/Enable'
 
   if (b_varargout_1) {
     velocity_controller_B.In1_m = velocity_controller_B.b_varargout_2;
   }
 
-  // End of MATLABSystem: '<S4>/SourceBlock'
-  // End of Outputs for SubSystem: '<S4>/Enabled Subsystem'
+  // End of MATLABSystem: '<S5>/SourceBlock'
+  // End of Outputs for SubSystem: '<S5>/Enabled Subsystem'
   // End of Outputs for SubSystem: '<Root>/Subscribe2'
 
   // SignalConversion generated from: '<Root>/Vector Concatenate'
@@ -1474,50 +1474,50 @@ void velocity_controller_step(void)
     velocity_controller_B.In1_m.Linear.X;
 
   // Outputs for Atomic SubSystem: '<Root>/Subscribe4'
-  // MATLABSystem: '<S6>/SourceBlock' incorporates:
-  //   Inport: '<S31>/In1'
+  // MATLABSystem: '<S7>/SourceBlock' incorporates:
+  //   Inport: '<S32>/In1'
 
   b_varargout_1 = Sub_velocity_controller_44.getLatestMessage
     (&velocity_controller_B.b_varargout_2_m);
 
-  // Outputs for Enabled SubSystem: '<S6>/Enabled Subsystem' incorporates:
-  //   EnablePort: '<S31>/Enable'
+  // Outputs for Enabled SubSystem: '<S7>/Enabled Subsystem' incorporates:
+  //   EnablePort: '<S32>/Enable'
 
   if (b_varargout_1) {
     velocity_controller_B.In1_n = velocity_controller_B.b_varargout_2_m;
   }
 
-  // End of MATLABSystem: '<S6>/SourceBlock'
-  // End of Outputs for SubSystem: '<S6>/Enabled Subsystem'
+  // End of MATLABSystem: '<S7>/SourceBlock'
+  // End of Outputs for SubSystem: '<S7>/Enabled Subsystem'
   // End of Outputs for SubSystem: '<Root>/Subscribe4'
 
   // SignalConversion generated from: '<Root>/Vector Concatenate'
   velocity_controller_B.VectorConcatenate[1] = velocity_controller_B.In1_n.Data;
 
   // Outputs for Atomic SubSystem: '<Root>/Subscribe3'
-  // MATLABSystem: '<S5>/SourceBlock' incorporates:
-  //   Inport: '<S30>/In1'
+  // MATLABSystem: '<S6>/SourceBlock' incorporates:
+  //   Inport: '<S31>/In1'
 
   b_varargout_1 = Sub_velocity_controller_43.getLatestMessage
     (&velocity_controller_B.b_varargout_2);
 
-  // Outputs for Enabled SubSystem: '<S5>/Enabled Subsystem' incorporates:
-  //   EnablePort: '<S30>/Enable'
+  // Outputs for Enabled SubSystem: '<S6>/Enabled Subsystem' incorporates:
+  //   EnablePort: '<S31>/Enable'
 
   if (b_varargout_1) {
     velocity_controller_B.In1 = velocity_controller_B.b_varargout_2;
   }
 
-  // End of MATLABSystem: '<S5>/SourceBlock'
-  // End of Outputs for SubSystem: '<S5>/Enabled Subsystem'
+  // End of MATLABSystem: '<S6>/SourceBlock'
+  // End of Outputs for SubSystem: '<S6>/Enabled Subsystem'
   // End of Outputs for SubSystem: '<Root>/Subscribe3'
 
-  // MATLAB Function: '<S27>/optimizer' incorporates:
+  // MATLAB Function: '<S28>/optimizer' incorporates:
   //   Constant: '<Root>/Constant'
-  //   Memory: '<S7>/Memory'
-  //   Memory: '<S7>/last_x'
+  //   Memory: '<S8>/Memory'
+  //   Memory: '<S8>/last_x'
   //   SignalConversion generated from: '<Root>/Vector Concatenate1'
-  //   UnitDelay: '<S7>/last_mv'
+  //   UnitDelay: '<S8>/last_mv'
 
   for (velocity_controller_B.b_i = 0; velocity_controller_B.b_i < 10;
        velocity_controller_B.b_i++) {
@@ -1554,11 +1554,11 @@ void velocity_controller_step(void)
 
   for (velocity_controller_B.rseq_tmp = 0; velocity_controller_B.rseq_tmp < 2;
        velocity_controller_B.rseq_tmp++) {
-    velocity_controller_B.b_Kr = 0.0;
+    velocity_controller_B.umin_scale1 = 0.0;
     for (velocity_controller_B.b_i = 0; velocity_controller_B.b_i < 20;
          velocity_controller_B.b_i++) {
-      velocity_controller_B.b_Kr += b_Kr[20 * velocity_controller_B.rseq_tmp +
-        velocity_controller_B.b_i] *
+      velocity_controller_B.umin_scale1 += b_Kr[20 *
+        velocity_controller_B.rseq_tmp + velocity_controller_B.b_i] *
         velocity_controller_B.rseq[velocity_controller_B.b_i];
     }
 
@@ -1566,7 +1566,7 @@ void velocity_controller_step(void)
       velocity_controller_B.rseq_tmp + 1] * velocity_controller_B.xest[1] +
       b_Kx[3 * velocity_controller_B.rseq_tmp] * velocity_controller_B.xest[0])
       + b_Kx[3 * velocity_controller_B.rseq_tmp + 2] *
-      velocity_controller_B.xest[2]) + velocity_controller_B.b_Kr) +
+      velocity_controller_B.xest[2]) + velocity_controller_B.umin_scale1) +
       (-2.9734171465447261 * static_cast<real_T>(velocity_controller_B.rseq_tmp)
        + 24.06101313842251) * velocity_controller_DW.last_mv_DSTATE;
   }
@@ -1585,31 +1585,60 @@ void velocity_controller_step(void)
   velocity_controller_qpkwik(b_Linv, b_Hinv, velocity_controller_B.f, b_Ac,
     velocity_controller_B.b_Mlim, velocity_controller_B.iAnew, 120, 1.0E-6,
     velocity_controller_B.xest, velocity_controller_B.a__1,
-    &velocity_controller_B.b_Kr);
-  if ((velocity_controller_B.b_Kr < 0.0) || (velocity_controller_B.b_Kr == 0.0))
-  {
+    &velocity_controller_B.umin_scale1);
+  if ((velocity_controller_B.umin_scale1 < 0.0) ||
+      (velocity_controller_B.umin_scale1 == 0.0)) {
     velocity_controller_B.xest[0] = 0.0;
   }
 
   velocity_controller_DW.last_mv_DSTATE += velocity_controller_B.xest[0];
 
-  // BusAssignment: '<Root>/Bus Assignment1' incorporates:
-  //   Gain: '<S7>/umin_scale1'
-  //   MATLAB Function: '<S27>/optimizer'
+  // Gain: '<S8>/umin_scale1' incorporates:
+  //   MATLAB Function: '<S28>/optimizer'
 
-  velocity_controller_B.BusAssignment1.Data =
-    velocity_controller_P.umin_scale1_Gain *
+  velocity_controller_B.umin_scale1 = velocity_controller_P.umin_scale1_Gain *
     velocity_controller_DW.last_mv_DSTATE;
 
+  // BusAssignment: '<Root>/Bus Assignment1' incorporates:
+  //   MATLAB Function: '<Root>/Brake at low velocities'
+
+  velocity_controller_B.BusAssignment1.Data = velocity_controller_B.umin_scale1;
+
+  // MATLAB Function: '<Root>/Brake at low velocities'
+  if ((velocity_controller_B.In1_m.Linear.X < 0.3) &&
+      (velocity_controller_B.In1.Linear.X < 0.1)) {
+    // BusAssignment: '<Root>/Bus Assignment1'
+    velocity_controller_B.BusAssignment1.Data = -1.0;
+  } else if ((velocity_controller_B.In1_m.Linear.X < 1.0) &&
+             (velocity_controller_B.In1.Linear.X < 0.1)) {
+    if ((1.0 - velocity_controller_B.In1_m.Linear.X) + -1.0 <
+        velocity_controller_B.umin_scale1) {
+      // BusAssignment: '<Root>/Bus Assignment1'
+      velocity_controller_B.BusAssignment1.Data = (1.0 -
+        velocity_controller_B.In1_m.Linear.X) + -1.0;
+    }
+  } else if ((velocity_controller_B.In1_m.Linear.X < 0.5) &&
+             (velocity_controller_B.In1.Linear.X > 1.0)) {
+    if ((0.0 > velocity_controller_B.umin_scale1) || rtIsNaN
+        (velocity_controller_B.umin_scale1)) {
+      // BusAssignment: '<Root>/Bus Assignment1'
+      velocity_controller_B.BusAssignment1.Data = 0.0;
+    } else {
+      // BusAssignment: '<Root>/Bus Assignment1'
+      velocity_controller_B.BusAssignment1.Data =
+        velocity_controller_B.umin_scale1;
+    }
+  }
+
   // Outputs for Atomic SubSystem: '<Root>/Publish1'
-  // MATLABSystem: '<S3>/SinkBlock'
+  // MATLABSystem: '<S4>/SinkBlock'
   Pub_velocity_controller_50.publish(&velocity_controller_B.BusAssignment1);
 
   // End of Outputs for SubSystem: '<Root>/Publish1'
   for (velocity_controller_B.b_i = 0; velocity_controller_B.b_i < 3;
        velocity_controller_B.b_i++) {
-    // Update for Memory: '<S7>/last_x' incorporates:
-    //   MATLAB Function: '<S27>/optimizer'
+    // Update for Memory: '<S8>/last_x' incorporates:
+    //   MATLAB Function: '<S28>/optimizer'
 
     velocity_controller_DW.last_x_PreviousInput[velocity_controller_B.b_i] =
       (((c_a[velocity_controller_B.b_i + 3] * velocity_controller_B.xk[1] +
@@ -1622,8 +1651,8 @@ void velocity_controller_step(void)
        velocity_controller_B.VectorConcatenate1[0]);
   }
 
-  // Update for Memory: '<S7>/Memory' incorporates:
-  //   MATLAB Function: '<S27>/optimizer'
+  // Update for Memory: '<S8>/Memory' incorporates:
+  //   MATLAB Function: '<S28>/optimizer'
 
   velocity_controller_DW.Memory_PreviousInput[0] = (velocity_controller_B.iAnew
     [0] != 0);
@@ -1648,18 +1677,18 @@ void velocity_controller_initialize(void)
     char_T b_zeroDelimTopic[12];
     char_T b_zeroDelimTopic_2[10];
     char_T b_zeroDelimTopic_1[8];
-    char_T b_zeroDelimTopic_0[6];
+    char_T b_zeroDelimTopic_0[7];
     static const char_T tmp[11] = { 'v', 'e', 'h', 'i', 'c', 'l', 'e', '/', 'v',
       'e', 'l' };
 
-    static const char_T tmp_0[5] = { 'a', 'c', 'c', 'e', 'l' };
+    static const char_T tmp_0[6] = { '/', 'a', 'c', 'c', 'e', 'l' };
 
     static const char_T tmp_1[7] = { 'c', 'm', 'd', '_', 'v', 'e', 'l' };
 
     static const char_T tmp_2[9] = { 'c', 'm', 'd', '_', 'a', 'c', 'c', 'e', 'l'
     };
 
-    // InitializeConditions for Memory: '<S7>/last_x'
+    // InitializeConditions for Memory: '<S8>/last_x'
     velocity_controller_DW.last_x_PreviousInput[0] =
       velocity_controller_P.last_x_InitialCondition[0];
     velocity_controller_DW.last_x_PreviousInput[1] =
@@ -1667,11 +1696,11 @@ void velocity_controller_initialize(void)
     velocity_controller_DW.last_x_PreviousInput[2] =
       velocity_controller_P.last_x_InitialCondition[2];
 
-    // InitializeConditions for UnitDelay: '<S7>/last_mv'
+    // InitializeConditions for UnitDelay: '<S8>/last_mv'
     velocity_controller_DW.last_mv_DSTATE =
       velocity_controller_P.last_mv_InitialCondition;
 
-    // InitializeConditions for Memory: '<S7>/Memory'
+    // InitializeConditions for Memory: '<S8>/Memory'
     velocity_controller_DW.Memory_PreviousInput[0] =
       velocity_controller_P.Memory_InitialCondition[0];
     velocity_controller_DW.Memory_PreviousInput[1] =
@@ -1682,15 +1711,15 @@ void velocity_controller_initialize(void)
       velocity_controller_P.Memory_InitialCondition[3];
 
     // SystemInitialize for Atomic SubSystem: '<Root>/Subscribe2'
-    // SystemInitialize for Enabled SubSystem: '<S4>/Enabled Subsystem'
-    // SystemInitialize for Outport: '<S29>/Out1' incorporates:
-    //   Inport: '<S29>/In1'
+    // SystemInitialize for Enabled SubSystem: '<S5>/Enabled Subsystem'
+    // SystemInitialize for Outport: '<S30>/Out1' incorporates:
+    //   Inport: '<S30>/In1'
 
     velocity_controller_B.In1_m = velocity_controller_P.Out1_Y0;
 
-    // End of SystemInitialize for SubSystem: '<S4>/Enabled Subsystem'
+    // End of SystemInitialize for SubSystem: '<S5>/Enabled Subsystem'
 
-    // Start for MATLABSystem: '<S4>/SourceBlock'
+    // Start for MATLABSystem: '<S5>/SourceBlock'
     velocity_controller_DW.obj_j.matlabCodegenIsDeleted = false;
     velocity_controller_DW.obj_j.isInitialized = 1;
     for (i = 0; i < 11; i++) {
@@ -1701,42 +1730,42 @@ void velocity_controller_initialize(void)
     Sub_velocity_controller_51.createSubscriber(&b_zeroDelimTopic[0], 1);
     velocity_controller_DW.obj_j.isSetupComplete = true;
 
-    // End of Start for MATLABSystem: '<S4>/SourceBlock'
+    // End of Start for MATLABSystem: '<S5>/SourceBlock'
     // End of SystemInitialize for SubSystem: '<Root>/Subscribe2'
 
     // SystemInitialize for Atomic SubSystem: '<Root>/Subscribe4'
+    // SystemInitialize for Enabled SubSystem: '<S7>/Enabled Subsystem'
+    // SystemInitialize for Outport: '<S32>/Out1' incorporates:
+    //   Inport: '<S32>/In1'
+
+    velocity_controller_B.In1_n = velocity_controller_P.Out1_Y0_c;
+
+    // End of SystemInitialize for SubSystem: '<S7>/Enabled Subsystem'
+
+    // Start for MATLABSystem: '<S7>/SourceBlock'
+    velocity_controller_DW.obj_d.matlabCodegenIsDeleted = false;
+    velocity_controller_DW.obj_d.isInitialized = 1;
+    for (i = 0; i < 6; i++) {
+      b_zeroDelimTopic_0[i] = tmp_0[i];
+    }
+
+    b_zeroDelimTopic_0[6] = '\x00';
+    Sub_velocity_controller_44.createSubscriber(&b_zeroDelimTopic_0[0], 1);
+    velocity_controller_DW.obj_d.isSetupComplete = true;
+
+    // End of Start for MATLABSystem: '<S7>/SourceBlock'
+    // End of SystemInitialize for SubSystem: '<Root>/Subscribe4'
+
+    // SystemInitialize for Atomic SubSystem: '<Root>/Subscribe3'
     // SystemInitialize for Enabled SubSystem: '<S6>/Enabled Subsystem'
     // SystemInitialize for Outport: '<S31>/Out1' incorporates:
     //   Inport: '<S31>/In1'
 
-    velocity_controller_B.In1_n = velocity_controller_P.Out1_Y0_c;
+    velocity_controller_B.In1 = velocity_controller_P.Out1_Y0_o;
 
     // End of SystemInitialize for SubSystem: '<S6>/Enabled Subsystem'
 
     // Start for MATLABSystem: '<S6>/SourceBlock'
-    velocity_controller_DW.obj_d.matlabCodegenIsDeleted = false;
-    velocity_controller_DW.obj_d.isInitialized = 1;
-    for (i = 0; i < 5; i++) {
-      b_zeroDelimTopic_0[i] = tmp_0[i];
-    }
-
-    b_zeroDelimTopic_0[5] = '\x00';
-    Sub_velocity_controller_44.createSubscriber(&b_zeroDelimTopic_0[0], 1);
-    velocity_controller_DW.obj_d.isSetupComplete = true;
-
-    // End of Start for MATLABSystem: '<S6>/SourceBlock'
-    // End of SystemInitialize for SubSystem: '<Root>/Subscribe4'
-
-    // SystemInitialize for Atomic SubSystem: '<Root>/Subscribe3'
-    // SystemInitialize for Enabled SubSystem: '<S5>/Enabled Subsystem'
-    // SystemInitialize for Outport: '<S30>/Out1' incorporates:
-    //   Inport: '<S30>/In1'
-
-    velocity_controller_B.In1 = velocity_controller_P.Out1_Y0_o;
-
-    // End of SystemInitialize for SubSystem: '<S5>/Enabled Subsystem'
-
-    // Start for MATLABSystem: '<S5>/SourceBlock'
     velocity_controller_DW.obj_f.matlabCodegenIsDeleted = false;
     velocity_controller_DW.obj_f.isInitialized = 1;
     for (i = 0; i < 7; i++) {
@@ -1747,11 +1776,11 @@ void velocity_controller_initialize(void)
     Sub_velocity_controller_43.createSubscriber(&b_zeroDelimTopic_1[0], 1);
     velocity_controller_DW.obj_f.isSetupComplete = true;
 
-    // End of Start for MATLABSystem: '<S5>/SourceBlock'
+    // End of Start for MATLABSystem: '<S6>/SourceBlock'
     // End of SystemInitialize for SubSystem: '<Root>/Subscribe3'
 
     // SystemInitialize for Atomic SubSystem: '<Root>/Publish1'
-    // Start for MATLABSystem: '<S3>/SinkBlock'
+    // Start for MATLABSystem: '<S4>/SinkBlock'
     velocity_controller_DW.obj.matlabCodegenIsDeleted = false;
     velocity_controller_DW.obj.isInitialized = 1;
     for (i = 0; i < 9; i++) {
@@ -1762,7 +1791,7 @@ void velocity_controller_initialize(void)
     Pub_velocity_controller_50.createPublisher(&b_zeroDelimTopic_2[0], 1);
     velocity_controller_DW.obj.isSetupComplete = true;
 
-    // End of Start for MATLABSystem: '<S3>/SinkBlock'
+    // End of Start for MATLABSystem: '<S4>/SinkBlock'
     // End of SystemInitialize for SubSystem: '<Root>/Publish1'
   }
 }
@@ -1771,39 +1800,39 @@ void velocity_controller_initialize(void)
 void velocity_controller_terminate(void)
 {
   // Terminate for Atomic SubSystem: '<Root>/Subscribe2'
-  // Terminate for MATLABSystem: '<S4>/SourceBlock'
+  // Terminate for MATLABSystem: '<S5>/SourceBlock'
   if (!velocity_controller_DW.obj_j.matlabCodegenIsDeleted) {
     velocity_controller_DW.obj_j.matlabCodegenIsDeleted = true;
   }
 
-  // End of Terminate for MATLABSystem: '<S4>/SourceBlock'
+  // End of Terminate for MATLABSystem: '<S5>/SourceBlock'
   // End of Terminate for SubSystem: '<Root>/Subscribe2'
 
   // Terminate for Atomic SubSystem: '<Root>/Subscribe4'
-  // Terminate for MATLABSystem: '<S6>/SourceBlock'
+  // Terminate for MATLABSystem: '<S7>/SourceBlock'
   if (!velocity_controller_DW.obj_d.matlabCodegenIsDeleted) {
     velocity_controller_DW.obj_d.matlabCodegenIsDeleted = true;
   }
 
-  // End of Terminate for MATLABSystem: '<S6>/SourceBlock'
+  // End of Terminate for MATLABSystem: '<S7>/SourceBlock'
   // End of Terminate for SubSystem: '<Root>/Subscribe4'
 
   // Terminate for Atomic SubSystem: '<Root>/Subscribe3'
-  // Terminate for MATLABSystem: '<S5>/SourceBlock'
+  // Terminate for MATLABSystem: '<S6>/SourceBlock'
   if (!velocity_controller_DW.obj_f.matlabCodegenIsDeleted) {
     velocity_controller_DW.obj_f.matlabCodegenIsDeleted = true;
   }
 
-  // End of Terminate for MATLABSystem: '<S5>/SourceBlock'
+  // End of Terminate for MATLABSystem: '<S6>/SourceBlock'
   // End of Terminate for SubSystem: '<Root>/Subscribe3'
 
   // Terminate for Atomic SubSystem: '<Root>/Publish1'
-  // Terminate for MATLABSystem: '<S3>/SinkBlock'
+  // Terminate for MATLABSystem: '<S4>/SinkBlock'
   if (!velocity_controller_DW.obj.matlabCodegenIsDeleted) {
     velocity_controller_DW.obj.matlabCodegenIsDeleted = true;
   }
 
-  // End of Terminate for MATLABSystem: '<S3>/SinkBlock'
+  // End of Terminate for MATLABSystem: '<S4>/SinkBlock'
   // End of Terminate for SubSystem: '<Root>/Publish1'
 }
 
