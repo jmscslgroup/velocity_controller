@@ -9,7 +9,7 @@
 //
 // Model version                  : 1.45
 // Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
-// C/C++ source code generated on : Wed Aug 23 13:35:23 2023
+// C/C++ source code generated on : Wed Aug 23 13:54:14 2023
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -55,7 +55,7 @@ P_velocity_controller_T velocity_controller_P = {
   // Mask Parameter: reference_tracking_P
   //  Referenced by: '<S49>/Proportional Gain'
 
-  0.5,
+  0.8,
 
   // Mask Parameter: reference_tracking_UpperSaturat
   //  Referenced by:

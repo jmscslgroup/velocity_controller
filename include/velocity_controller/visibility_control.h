@@ -28,5 +28,5 @@
   #define VELOCITY_CONTROLLER_PUBLIC_TYPE
 #endif
 #endif  // VELOCITY_CONTROLLER__VISIBILITY_CONTROL_H_
-// Generated 23-Aug-2023 13:35:31
+// Generated 23-Aug-2023 13:54:20
 // Copyright 2019-2020 The MathWorks, Inc.
