@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.44
-// Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Wed Jul 28 10:48:01 2021
+// Model version                  : 1.45
+// Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
+// C/C++ source code generated on : Wed Aug 23 11:23:11 2023
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -17,19 +17,18 @@
 // Validation result: Not run
 //
 #include "velocity_controller.h"
-#include "velocity_controller_private.h"
 
 // Block parameters (default storage)
 P_velocity_controller_T velocity_controller_P = {
   // Mask Parameter: reference_tracking_D
   //  Referenced by: '<S38>/Derivative Gain'
 
-  1.33981022316214,
+  1.0,
 
   // Mask Parameter: reference_tracking_I
   //  Referenced by: '<S41>/Integral Gain'
 
-  0.0655731064858092,
+  0.0,
 
   // Mask Parameter: reference_tracking_InitialCondi
   //  Referenced by: '<S39>/Filter'
@@ -56,7 +55,7 @@ P_velocity_controller_T velocity_controller_P = {
   // Mask Parameter: reference_tracking_P
   //  Referenced by: '<S49>/Proportional Gain'
 
-  2.71967723043159,
+  0.2,
 
   // Mask Parameter: reference_tracking_UpperSaturat
   //  Referenced by:
@@ -177,7 +176,7 @@ P_velocity_controller_T velocity_controller_P = {
   // Computed Parameter: Memory_InitialCondition
   //  Referenced by: '<S35>/Memory'
 
-  0
+  false
 };
 
 //

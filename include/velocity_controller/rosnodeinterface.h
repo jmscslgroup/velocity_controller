@@ -1,5 +1,12 @@
-// Copyright 2019-2020 The MathWorks, Inc.
-// Generated 28-Jul-2021 10:48:04
+//
+// File rosnodeinterface.h
+//
+// Code generated for Simulink model 'velocity_controller'.
+//
+// Model version                  : 1.45
+// Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
+// C/C++ source code generated on : Wed Aug 23 11:23:17 2023
+//
 
 #ifndef _ROS_MATLAB_NODEINTERFACE_
 #define _ROS_MATLAB_NODEINTERFACE_
@@ -80,7 +87,7 @@ namespace ros
       std::shared_ptr<ros::NodeHandle> mNode;
       Semaphore mBaseRateSem;
       std::shared_ptr<std::thread> mBaseRateThread;
-      std::shared_ptr<std::thread> mSchedulerThread;
+      std::shared_ptr<ros::WallTimer> mSchedulerTimer;
 
       //
       //
@@ -98,7 +105,7 @@ namespace ros
 
       //
       boolean_T getStopRequestedFlag(void);
-      void schedulerThread(void);
+      void schedulerCallback(const ros::WallTimerEvent& ev);
       void baseRateTask(void);
       std::shared_ptr<ros::NodeHandle> getNode()
       {

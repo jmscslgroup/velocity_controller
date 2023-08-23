@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.44
-// Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Wed Jul 28 10:48:01 2021
+// Model version                  : 1.45
+// Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
+// C/C++ source code generated on : Wed Aug 23 11:23:11 2023
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -17,11 +17,15 @@
 // Validation result: Not run
 //
 
+#include "zero_crossing_types.h"
+#include "rtwtypes.h"
 #include "rt_zcfcn.h"
+#include "solver_zc.h"
 
-extern "C" {
+extern "C"
+{
   // Detect zero crossings events.
-  ZCEventType rt_ZCFcn(ZCDirection zcDir, ZCSigState* prevZc, real_T currValue)
+  ZCEventType rt_ZCFcn(ZCDirection zcDir, ZCSigState *prevZc, real_T currValue)
   {
     slZcEventType zcsDir;
     slZcEventType tempEv;
@@ -40,12 +44,12 @@ extern "C" {
     };
 
     // get prevZcEvent and prevZcSign from prevZc
-    slZcEventType prevEv = (slZcEventType)(((uint8_T)(*prevZc)) >> 2);
-    slZcSignalSignType prevSign = (slZcSignalSignType)(((uint8_T)(*prevZc)) &
-      (uint8_T)0x03);
+    const slZcEventType prevEv = (slZcEventType)(((uint8_T)(*prevZc)) >> 2);
+    const slZcSignalSignType prevSign = (slZcSignalSignType)(((uint8_T)(*prevZc))
+      & (uint8_T)0x03);
 
     // get current zcSignal sign from current zcSignal value
-    slZcSignalSignType currSign = (slZcSignalSignType)((currValue) > 0.0 ?
+    const slZcSignalSignType currSign = (slZcSignalSignType)((currValue) > 0.0 ?
       SL_ZCS_SIGN_POS :
       ((currValue) < 0.0 ? SL_ZCS_SIGN_NEG : SL_ZCS_SIGN_ZERO));
 
@@ -71,7 +75,7 @@ extern "C" {
       break;
     }
 
-    //had event, check if double zc happend remove double detection.
+    // had event, check if zc happened
     if (slZcHadEvent(currEv, zcsDir)) {
       currEv = (slZcEventType)(slZcUnAliasEvents(prevEv, currEv));
     } else {
@@ -92,6 +96,7 @@ extern "C" {
     return zcEvent;
   }                                    // rt_ZCFcn
 }
+
 //
 // File trailer for generated code.
 //

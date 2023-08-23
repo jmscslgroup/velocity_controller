@@ -3,6 +3,7 @@
 
 #include "slros_busmsg_conversion.h"
 #include "slros_generic.h"
+#include "velocity_controller_types.h"
 
 extern ros::NodeHandle * SLROSNodePtr;
 extern const std::string SLROSNodeName;

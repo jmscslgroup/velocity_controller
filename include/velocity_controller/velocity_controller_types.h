@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.44
-// Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Wed Jul 28 10:48:01 2021
+// Model version                  : 1.45
+// Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
+// C/C++ source code generated on : Wed Aug 23 11:23:11 2023
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -19,9 +19,6 @@
 #ifndef RTW_HEADER_velocity_controller_types_h_
 #define RTW_HEADER_velocity_controller_types_h_
 #include "rtwtypes.h"
-#include "zero_crossing_types.h"
-
-// Model Code Variants
 #ifndef DEFINED_TYPEDEF_FOR_SL_Bus_velocity_controller_std_msgs_Float64_
 #define DEFINED_TYPEDEF_FOR_SL_Bus_velocity_controller_std_msgs_Float64_
 

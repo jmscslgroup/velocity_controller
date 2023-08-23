@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.44
-// Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Wed Jul 28 10:48:01 2021
+// Model version                  : 1.45
+// Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
+// C/C++ source code generated on : Wed Aug 23 11:23:11 2023
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -18,19 +18,30 @@
 //
 #ifndef RTW_HEADER_velocity_controller_h_
 #define RTW_HEADER_velocity_controller_h_
-#include <math.h>
-#include <string.h>
-#include <stddef.h>
 #include "rtwtypes.h"
-#include "zero_crossing_types.h"
 #include "rtw_continuous.h"
 #include "rtw_solver.h"
 #include "slros_initialize.h"
 #include "velocity_controller_types.h"
 #include "rt_zcfcn.h"
-#include "rtGetNaN.h"
+
+extern "C"
+{
+
 #include "rt_nonfinite.h"
-#include "rtGetInf.h"
+
+}
+
+extern "C"
+{
+
+#include "rtGetNaN.h"
+
+}
+
+#include <string.h>
+#include <stddef.h>
+#include "zero_crossing_types.h"
 
 // Macros for accessing real-time model data structure
 #ifndef rtmGetContStateDisabled
@@ -289,7 +300,7 @@ struct tag_RTM_velocity_controller_T {
   int_T *periodicContStateIndices;
   real_T *periodicContStateRanges;
   real_T *derivs;
-  boolean_T *contStateDisabled;
+  XDis_velocity_controller_T *contStateDisabled;
   boolean_T zCCacheNeedsReset;
   boolean_T derivCacheNeedsReset;
   boolean_T CTOutputIncnstWithState;
@@ -328,7 +339,8 @@ struct tag_RTM_velocity_controller_T {
 // Block parameters (default storage)
 #ifdef __cplusplus
 
-extern "C" {
+extern "C"
+{
 
 #endif
 
@@ -337,12 +349,14 @@ extern "C" {
 #ifdef __cplusplus
 
 }
+
 #endif
 
 // Block signals (default storage)
 #ifdef __cplusplus
 
-extern "C" {
+extern "C"
+{
 
 #endif
 
@@ -351,6 +365,7 @@ extern "C" {
 #ifdef __cplusplus
 
 }
+
 #endif
 
 // Continuous states (default storage)
@@ -364,7 +379,8 @@ extern PrevZCX_velocity_controller_T velocity_controller_PrevZCX;
 
 #ifdef __cplusplus
 
-extern "C" {
+extern "C"
+{
 
 #endif
 
@@ -376,12 +392,14 @@ extern "C" {
 #ifdef __cplusplus
 
 }
+
 #endif
 
 // Real-time Model object
 #ifdef __cplusplus
 
-extern "C" {
+extern "C"
+{
 
 #endif
 
@@ -390,7 +408,11 @@ extern "C" {
 #ifdef __cplusplus
 
 }
+
 #endif
+
+extern volatile boolean_T stopRequested;
+extern volatile boolean_T runModel;
 
 //-
 //  The generated code includes comments that allow you to trace directly
@@ -463,7 +485,7 @@ extern "C" {
 //  '<S54>'  : 'velocity_controller/reference_tracking/Sum Fdbk/Disabled'
 //  '<S55>'  : 'velocity_controller/reference_tracking/Tracking Mode/Disabled'
 //  '<S56>'  : 'velocity_controller/reference_tracking/Tracking Mode Sum/Passthrough'
-//  '<S57>'  : 'velocity_controller/reference_tracking/Tsamp - Integral/Passthrough'
+//  '<S57>'  : 'velocity_controller/reference_tracking/Tsamp - Integral/TsSignalSpecification'
 //  '<S58>'  : 'velocity_controller/reference_tracking/Tsamp - Ngain/Passthrough'
 //  '<S59>'  : 'velocity_controller/reference_tracking/postSat Signal/Forward_Path'
 //  '<S60>'  : 'velocity_controller/reference_tracking/preSat Signal/Forward_Path'

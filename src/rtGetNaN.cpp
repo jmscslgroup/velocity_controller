@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.44
-// Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Wed Jul 28 10:48:01 2021
+// Model version                  : 1.45
+// Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
+// C/C++ source code generated on : Wed Aug 23 11:23:11 2023
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -17,13 +17,28 @@
 // Validation result: Not run
 //
 
-//
-//  Abstract:
-//       Function to initialize non-finite, NaN
+#include "rtwtypes.h"
+
+extern "C"
+{
+
 #include "rtGetNaN.h"
+
+}
+
+#include <stddef.h>
+
+extern "C"
+{
+
+#include "rt_nonfinite.h"
+
+}
+
 #define NumBitsPerChar                 8U
 
-extern "C" {
+extern "C"
+{
   //
   // Initialize rtNaN needed by the generated code.
   // NaN is initialized as non-signaling. Assumes IEEE.
@@ -102,6 +117,7 @@ extern "C" {
     return nanF.wordL.wordLreal;
   }
 }
+
 //
 // File trailer for generated code.
 //

@@ -1,5 +1,12 @@
-// Copyright 2019-2021 The MathWorks, Inc.
-// Generated 28-Jul-2021 10:48:04
+//
+// File rosnodeinterface.cpp
+//
+// Code generated for Simulink model 'velocity_controller'.
+//
+// Model version                  : 1.45
+// Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
+// C/C++ source code generated on : Wed Aug 23 11:23:17 2023
+//
 
 #ifdef _MSC_VER
 
@@ -37,7 +44,7 @@ namespace ros
       : mNode()
       , mBaseRateSem()
       , mBaseRateThread()
-      , mSchedulerThread()
+      , mSchedulerTimer()
       , mStopSem()
       , mRunModel(true)
     {
@@ -62,9 +69,11 @@ namespace ros
         mBaseRateThread = std::make_shared<std::thread>(&NodeInterface::
           baseRateTask, this);
 
-        // create scheduler thread
-        mSchedulerThread = std::make_shared<std::thread>(&NodeInterface::
-          schedulerThread, this);
+        // create scheduler timer to run the scheduler callback
+        mSchedulerTimer = std::make_shared<ros::WallTimer>
+          (mNode->createWallTimer(ros::WallDuration(20000000*1e-9),
+            boost::bind(&NodeInterface::schedulerCallback, this, _1)));
+        mSchedulerTimer->start();
       } catch (std::exception& ex) {
         std::cout << ex.what() << std::endl;
         throw ex;
@@ -102,9 +111,9 @@ namespace ros
         mBaseRateThread->join();
         mRunModel = false;
         mBaseRateThread.reset();
-        if (mSchedulerThread.get()) {
-          mSchedulerThread->join();
-          mSchedulerThread.reset();
+        if (mSchedulerTimer.get()) {
+          mSchedulerTimer->stop();
+          mSchedulerTimer.reset();
         }
 
         velocity_controller_terminate();
@@ -115,11 +124,9 @@ namespace ros
     //
     // Scheduler Task using ROS Wall clock timer to run base-rate
     //
-    void NodeInterface::schedulerThread(void)
+    void NodeInterface::schedulerCallback(const ros::WallTimerEvent& ev)
     {
-      while (mRunModel) {
-        std::this_thread::sleep_until(std::chrono::system_clock::now() + std::
-          chrono::nanoseconds(20000000));
+      if (mRunModel) {
         mBaseRateSem.notify();
       }
     }
