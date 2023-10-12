@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.45
+// Model version                  : 1.44
 // Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
-// C/C++ source code generated on : Wed Aug 23 13:54:14 2023
+// C/C++ source code generated on : Thu Oct 12 15:13:25 2023
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -133,7 +133,8 @@ static void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
 // Model step function
 void velocity_controller_step(void)
 {
-  SL_Bus_velocity_controller_std_msgs_Bool b_varargout_2;
+  SL_Bus_velocity_controller_std_msgs_Bool b_varargout_2_0;
+  SL_Bus_velocity_controller_std_msgs_Float64 b_varargout_2;
   SL_Bus_velocity_controller_std_msgs_Float64 rtb_BusAssignment;
   real_T rtb_IntegralGain;
   real_T rtb_Saturation;
@@ -175,15 +176,14 @@ void velocity_controller_step(void)
 
     // Outputs for Atomic SubSystem: '<Root>/Subscribe'
     // MATLABSystem: '<S4>/SourceBlock'
-    b_varargout_1 = Sub_velocity_controller_10.getLatestMessage
-      (&velocity_controller_B.b_varargout_2);
+    b_varargout_1 = Sub_velocity_controller_10.getLatestMessage(&b_varargout_2);
 
     // Outputs for Enabled SubSystem: '<S4>/Enabled Subsystem' incorporates:
     //   EnablePort: '<S8>/Enable'
 
     if (b_varargout_1) {
       // SignalConversion generated from: '<S8>/In1'
-      velocity_controller_B.In1_d = velocity_controller_B.b_varargout_2;
+      velocity_controller_B.In1_d = b_varargout_2;
     }
 
     // End of MATLABSystem: '<S4>/SourceBlock'
@@ -192,7 +192,7 @@ void velocity_controller_step(void)
 
     // Sum: '<Root>/Sum'
     rtb_IntegralGain = velocity_controller_B.In1.Linear.X -
-      velocity_controller_B.In1_d.Linear.X;
+      velocity_controller_B.In1_d.Data;
 
     // Gain: '<S49>/Proportional Gain'
     velocity_controller_B.ProportionalGain =
@@ -200,14 +200,14 @@ void velocity_controller_step(void)
 
     // Outputs for Atomic SubSystem: '<Root>/Subscribe2'
     // MATLABSystem: '<S6>/SourceBlock'
-    b_varargout_1 = Sub_velocity_controller_40.getLatestMessage(&b_varargout_2);
+    b_varargout_1 = Sub_velocity_controller_40.getLatestMessage(&b_varargout_2_0);
 
     // Outputs for Enabled SubSystem: '<S6>/Enabled Subsystem' incorporates:
     //   EnablePort: '<S10>/Enable'
 
     if (b_varargout_1) {
       // SignalConversion generated from: '<S10>/In1'
-      velocity_controller_B.In1_g = b_varargout_2;
+      velocity_controller_B.In1_g = b_varargout_2_0;
     }
 
     // End of MATLABSystem: '<S6>/SourceBlock'
@@ -292,18 +292,17 @@ void velocity_controller_step(void)
   rtb_BusAssignment.Data = rtb_Saturation;
 
   // MATLAB Function: '<Root>/Brake at low velocities'
-  if ((velocity_controller_B.In1_d.Linear.X < 0.3) &&
+  if ((velocity_controller_B.In1_d.Data < 0.3) &&
       (velocity_controller_B.In1.Linear.X < 0.1)) {
     // BusAssignment: '<Root>/Bus Assignment'
     rtb_BusAssignment.Data = -1.0;
-  } else if ((velocity_controller_B.In1_d.Linear.X < 1.0) &&
+  } else if ((velocity_controller_B.In1_d.Data < 1.0) &&
              (velocity_controller_B.In1.Linear.X < 0.1)) {
-    if ((1.0 - velocity_controller_B.In1_d.Linear.X) - 1.0 < rtb_Saturation) {
+    if ((1.0 - velocity_controller_B.In1_d.Data) - 1.0 < rtb_Saturation) {
       // BusAssignment: '<Root>/Bus Assignment'
-      rtb_BusAssignment.Data = (1.0 - velocity_controller_B.In1_d.Linear.X) -
-        1.0;
+      rtb_BusAssignment.Data = (1.0 - velocity_controller_B.In1_d.Data) - 1.0;
     }
-  } else if ((velocity_controller_B.In1_d.Linear.X < 0.5) &&
+  } else if ((velocity_controller_B.In1_d.Data < 0.5) &&
              (velocity_controller_B.In1.Linear.X > 1.0)) {
     if ((rtb_Saturation <= 0.0) || rtIsNaN(rtb_Saturation)) {
       // BusAssignment: '<Root>/Bus Assignment'
@@ -506,14 +505,13 @@ void velocity_controller_initialize(void)
 
   {
     int32_T i;
-    char_T b_zeroDelimTopic_1[28];
-    char_T b_zeroDelimTopic_0[12];
-    char_T b_zeroDelimTopic_2[10];
+    char_T b_zeroDelimTopic_0[16];
+    char_T b_zeroDelimTopic_1[10];
     char_T b_zeroDelimTopic[8];
     static const char_T tmp[7] = { 'c', 'm', 'd', '_', 'v', 'e', 'l' };
 
-    static const char_T tmp_0[11] = { 'v', 'e', 'h', 'i', 'c', 'l', 'e', '/',
-      'v', 'e', 'l' };
+    static const char_T tmp_0[15] = { 'c', 'a', 'r', '/', 's', 't', 'a', 't',
+      'e', '/', 'v', 'e', 'l', '_', 'x' };
 
     static const char_T tmp_1[27] = { '/', 'c', 'a', 'r', '/', 'p', 'a', 'n',
       'd', 'a', '/', 'c', 'o', 'n', 't', 'r', 'o', 'l', 's', '_', 'a', 'l', 'l',
@@ -542,7 +540,7 @@ void velocity_controller_initialize(void)
     // SystemInitialize for SignalConversion generated from: '<S9>/In1' incorporates:
     //   Outport: '<S9>/Out1'
 
-    velocity_controller_B.In1 = velocity_controller_P.Out1_Y0_h;
+    velocity_controller_B.In1 = velocity_controller_P.Out1_Y0;
 
     // End of SystemInitialize for SubSystem: '<S5>/Enabled Subsystem'
 
@@ -565,18 +563,18 @@ void velocity_controller_initialize(void)
     // SystemInitialize for SignalConversion generated from: '<S8>/In1' incorporates:
     //   Outport: '<S8>/Out1'
 
-    velocity_controller_B.In1_d = velocity_controller_P.Out1_Y0;
+    velocity_controller_B.In1_d = velocity_controller_P.Out1_Y0_p;
 
     // End of SystemInitialize for SubSystem: '<S4>/Enabled Subsystem'
 
     // Start for MATLABSystem: '<S4>/SourceBlock'
     velocity_controller_DW.obj_n.matlabCodegenIsDeleted = false;
     velocity_controller_DW.obj_n.isInitialized = 1;
-    for (i = 0; i < 11; i++) {
+    for (i = 0; i < 15; i++) {
       b_zeroDelimTopic_0[i] = tmp_0[i];
     }
 
-    b_zeroDelimTopic_0[11] = '\x00';
+    b_zeroDelimTopic_0[15] = '\x00';
     Sub_velocity_controller_10.createSubscriber(&b_zeroDelimTopic_0[0], 1);
     velocity_controller_DW.obj_n.isSetupComplete = true;
 
@@ -596,11 +594,12 @@ void velocity_controller_initialize(void)
     velocity_controller_DW.obj_f.matlabCodegenIsDeleted = false;
     velocity_controller_DW.obj_f.isInitialized = 1;
     for (i = 0; i < 27; i++) {
-      b_zeroDelimTopic_1[i] = tmp_1[i];
+      velocity_controller_B.b_zeroDelimTopic[i] = tmp_1[i];
     }
 
-    b_zeroDelimTopic_1[27] = '\x00';
-    Sub_velocity_controller_40.createSubscriber(&b_zeroDelimTopic_1[0], 1);
+    velocity_controller_B.b_zeroDelimTopic[27] = '\x00';
+    Sub_velocity_controller_40.createSubscriber
+      (&velocity_controller_B.b_zeroDelimTopic[0], 1);
     velocity_controller_DW.obj_f.isSetupComplete = true;
 
     // End of Start for MATLABSystem: '<S6>/SourceBlock'
@@ -611,11 +610,11 @@ void velocity_controller_initialize(void)
     velocity_controller_DW.obj.matlabCodegenIsDeleted = false;
     velocity_controller_DW.obj.isInitialized = 1;
     for (i = 0; i < 9; i++) {
-      b_zeroDelimTopic_2[i] = tmp_2[i];
+      b_zeroDelimTopic_1[i] = tmp_2[i];
     }
 
-    b_zeroDelimTopic_2[9] = '\x00';
-    Pub_velocity_controller_3.createPublisher(&b_zeroDelimTopic_2[0], 1);
+    b_zeroDelimTopic_1[9] = '\x00';
+    Pub_velocity_controller_3.createPublisher(&b_zeroDelimTopic_1[0], 1);
     velocity_controller_DW.obj.isSetupComplete = true;
 
     // End of Start for MATLABSystem: '<S3>/SinkBlock'

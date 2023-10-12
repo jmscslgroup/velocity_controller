@@ -3,9 +3,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.45
+// Model version                  : 1.44
 // Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
-// C/C++ source code generated on : Wed Aug 23 13:54:19 2023
+// C/C++ source code generated on : Thu Oct 12 15:13:30 2023
 //
 
 #ifdef _MSC_VER

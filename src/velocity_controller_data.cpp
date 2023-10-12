@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.45
+// Model version                  : 1.44
 // Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
-// C/C++ source code generated on : Wed Aug 23 13:54:14 2023
+// C/C++ source code generated on : Thu Oct 12 15:13:25 2023
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -23,12 +23,12 @@ P_velocity_controller_T velocity_controller_P = {
   // Mask Parameter: reference_tracking_D
   //  Referenced by: '<S38>/Derivative Gain'
 
-  0.0,
+  1.33981022316214,
 
   // Mask Parameter: reference_tracking_I
   //  Referenced by: '<S41>/Integral Gain'
 
-  0.0,
+  0.0655731064858092,
 
   // Mask Parameter: reference_tracking_InitialCondi
   //  Referenced by: '<S39>/Filter'
@@ -55,7 +55,7 @@ P_velocity_controller_T velocity_controller_P = {
   // Mask Parameter: reference_tracking_P
   //  Referenced by: '<S49>/Proportional Gain'
 
-  0.8,
+  2.71967723043159,
 
   // Mask Parameter: reference_tracking_UpperSaturat
   //  Referenced by:
@@ -65,40 +65,6 @@ P_velocity_controller_T velocity_controller_P = {
   1.5,
 
   // Computed Parameter: Out1_Y0
-  //  Referenced by: '<S8>/Out1'
-
-  {
-    {
-      0.0,                             // X
-      0.0,                             // Y
-      0.0                              // Z
-    },                                 // Linear
-
-    {
-      0.0,                             // X
-      0.0,                             // Y
-      0.0                              // Z
-    }                                  // Angular
-  },
-
-  // Computed Parameter: Constant_Value
-  //  Referenced by: '<S4>/Constant'
-
-  {
-    {
-      0.0,                             // X
-      0.0,                             // Y
-      0.0                              // Z
-    },                                 // Linear
-
-    {
-      0.0,                             // X
-      0.0,                             // Y
-      0.0                              // Z
-    }                                  // Angular
-  },
-
-  // Computed Parameter: Out1_Y0_h
   //  Referenced by: '<S9>/Out1'
 
   {
@@ -115,7 +81,7 @@ P_velocity_controller_T velocity_controller_P = {
     }                                  // Angular
   },
 
-  // Computed Parameter: Constant_Value_j
+  // Computed Parameter: Constant_Value
   //  Referenced by: '<S5>/Constant'
 
   {
@@ -139,7 +105,7 @@ P_velocity_controller_T velocity_controller_P = {
     false                              // Data
   },
 
-  // Computed Parameter: Constant_Value_ja
+  // Computed Parameter: Constant_Value_j
   //  Referenced by: '<S6>/Constant'
 
   {
@@ -148,6 +114,20 @@ P_velocity_controller_T velocity_controller_P = {
 
   // Computed Parameter: Constant_Value_d
   //  Referenced by: '<S1>/Constant'
+
+  {
+    0.0                                // Data
+  },
+
+  // Computed Parameter: Out1_Y0_p
+  //  Referenced by: '<S8>/Out1'
+
+  {
+    0.0                                // Data
+  },
+
+  // Computed Parameter: Constant_Value_n
+  //  Referenced by: '<S4>/Constant'
 
   {
     0.0                                // Data
@@ -163,10 +143,10 @@ P_velocity_controller_T velocity_controller_P = {
 
   1.5,
 
-  // Expression: -3
+  // Expression: -5
   //  Referenced by: '<Root>/Saturation'
 
-  -3.0,
+  -5.0,
 
   // Expression: 0
   //  Referenced by: '<S35>/ZeroGain'
