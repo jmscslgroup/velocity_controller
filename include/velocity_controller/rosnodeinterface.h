@@ -3,9 +3,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.44
+// Model version                  : 5.0
 // Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
-// C/C++ source code generated on : Thu Oct 12 15:13:30 2023
+// C/C++ source code generated on : Mon Oct 16 12:28:25 2023
 //
 
 #ifndef _ROS_MATLAB_NODEINTERFACE_

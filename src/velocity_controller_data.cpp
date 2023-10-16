@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.44
+// Model version                  : 5.0
 // Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
-// C/C++ source code generated on : Thu Oct 12 15:13:25 2023
+// C/C++ source code generated on : Mon Oct 16 12:28:21 2023
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -65,47 +65,13 @@ P_velocity_controller_T velocity_controller_P = {
   1.5,
 
   // Computed Parameter: Out1_Y0
-  //  Referenced by: '<S9>/Out1'
-
-  {
-    {
-      0.0,                             // X
-      0.0,                             // Y
-      0.0                              // Z
-    },                                 // Linear
-
-    {
-      0.0,                             // X
-      0.0,                             // Y
-      0.0                              // Z
-    }                                  // Angular
-  },
-
-  // Computed Parameter: Constant_Value
-  //  Referenced by: '<S5>/Constant'
-
-  {
-    {
-      0.0,                             // X
-      0.0,                             // Y
-      0.0                              // Z
-    },                                 // Linear
-
-    {
-      0.0,                             // X
-      0.0,                             // Y
-      0.0                              // Z
-    }                                  // Angular
-  },
-
-  // Computed Parameter: Out1_Y0_a
   //  Referenced by: '<S10>/Out1'
 
   {
     false                              // Data
   },
 
-  // Computed Parameter: Constant_Value_j
+  // Computed Parameter: Constant_Value
   //  Referenced by: '<S6>/Constant'
 
   {
@@ -128,6 +94,20 @@ P_velocity_controller_T velocity_controller_P = {
 
   // Computed Parameter: Constant_Value_n
   //  Referenced by: '<S4>/Constant'
+
+  {
+    0.0                                // Data
+  },
+
+  // Computed Parameter: Out1_Y0_h
+  //  Referenced by: '<S9>/Out1'
+
+  {
+    0.0                                // Data
+  },
+
+  // Computed Parameter: Constant_Value_j
+  //  Referenced by: '<S5>/Constant'
 
   {
     0.0                                // Data

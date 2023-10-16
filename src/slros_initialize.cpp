@@ -7,7 +7,7 @@ const std::string SLROSNodeName = "velocity_controller";
 SimulinkSubscriber<std_msgs::Float64, SL_Bus_velocity_controller_std_msgs_Float64> Sub_velocity_controller_10;
 
 // For Block velocity_controller/Subscribe1
-SimulinkSubscriber<geometry_msgs::Twist, SL_Bus_velocity_controller_geometry_msgs_Twist> Sub_velocity_controller_31;
+SimulinkSubscriber<std_msgs::Float64, SL_Bus_velocity_controller_std_msgs_Float64> Sub_velocity_controller_31;
 
 // For Block velocity_controller/Subscribe2
 SimulinkSubscriber<std_msgs::Bool, SL_Bus_velocity_controller_std_msgs_Bool> Sub_velocity_controller_40;

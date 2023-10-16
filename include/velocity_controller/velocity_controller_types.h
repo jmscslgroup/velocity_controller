@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.44
+// Model version                  : 5.0
 // Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
-// C/C++ source code generated on : Thu Oct 12 15:13:25 2023
+// C/C++ source code generated on : Mon Oct 16 12:28:21 2023
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -26,34 +26,6 @@
 struct SL_Bus_velocity_controller_std_msgs_Float64
 {
   real_T Data;
-};
-
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_SL_Bus_velocity_controller_geometry_msgs_Vector3_
-#define DEFINED_TYPEDEF_FOR_SL_Bus_velocity_controller_geometry_msgs_Vector3_
-
-// MsgType=geometry_msgs/Vector3
-struct SL_Bus_velocity_controller_geometry_msgs_Vector3
-{
-  real_T X;
-  real_T Y;
-  real_T Z;
-};
-
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_SL_Bus_velocity_controller_geometry_msgs_Twist_
-#define DEFINED_TYPEDEF_FOR_SL_Bus_velocity_controller_geometry_msgs_Twist_
-
-// MsgType=geometry_msgs/Twist
-struct SL_Bus_velocity_controller_geometry_msgs_Twist
-{
-  // MsgType=geometry_msgs/Vector3
-  SL_Bus_velocity_controller_geometry_msgs_Vector3 Linear;
-
-  // MsgType=geometry_msgs/Vector3
-  SL_Bus_velocity_controller_geometry_msgs_Vector3 Angular;
 };
 
 #endif

@@ -7,11 +7,9 @@
   <maintainer email="rosuser@test.com">ROS User</maintainer>
   <license>BSD</license>
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>geometry_msgs</build_depend>
   <build_depend>roscpp</build_depend>
   <build_depend>std_msgs</build_depend>
-  <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>roscpp</exec_depend>
   <exec_depend>std_msgs</exec_depend>
 </package>
-<!-- Generated on Thu Oct 12 15:13:31 2023 -->
+<!-- Generated on Mon Oct 16 12:28:26 2023 -->

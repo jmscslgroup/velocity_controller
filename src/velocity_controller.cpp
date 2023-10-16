@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.44
+// Model version                  : 5.0
 // Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
-// C/C++ source code generated on : Thu Oct 12 15:13:25 2023
+// C/C++ source code generated on : Mon Oct 16 12:28:21 2023
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -159,15 +159,14 @@ void velocity_controller_step(void)
   if (rtmIsMajorTimeStep(velocity_controller_M)) {
     // Outputs for Atomic SubSystem: '<Root>/Subscribe1'
     // MATLABSystem: '<S5>/SourceBlock'
-    b_varargout_1 = Sub_velocity_controller_31.getLatestMessage
-      (&velocity_controller_B.b_varargout_2);
+    b_varargout_1 = Sub_velocity_controller_31.getLatestMessage(&b_varargout_2);
 
     // Outputs for Enabled SubSystem: '<S5>/Enabled Subsystem' incorporates:
     //   EnablePort: '<S9>/Enable'
 
     if (b_varargout_1) {
       // SignalConversion generated from: '<S9>/In1'
-      velocity_controller_B.In1 = velocity_controller_B.b_varargout_2;
+      velocity_controller_B.In1 = b_varargout_2;
     }
 
     // End of MATLABSystem: '<S5>/SourceBlock'
@@ -191,7 +190,7 @@ void velocity_controller_step(void)
     // End of Outputs for SubSystem: '<Root>/Subscribe'
 
     // Sum: '<Root>/Sum'
-    rtb_IntegralGain = velocity_controller_B.In1.Linear.X -
+    rtb_IntegralGain = velocity_controller_B.In1.Data -
       velocity_controller_B.In1_d.Data;
 
     // Gain: '<S49>/Proportional Gain'
@@ -293,17 +292,17 @@ void velocity_controller_step(void)
 
   // MATLAB Function: '<Root>/Brake at low velocities'
   if ((velocity_controller_B.In1_d.Data < 0.3) &&
-      (velocity_controller_B.In1.Linear.X < 0.1)) {
+      (velocity_controller_B.In1.Data < 0.1)) {
     // BusAssignment: '<Root>/Bus Assignment'
     rtb_BusAssignment.Data = -1.0;
   } else if ((velocity_controller_B.In1_d.Data < 1.0) &&
-             (velocity_controller_B.In1.Linear.X < 0.1)) {
+             (velocity_controller_B.In1.Data < 0.1)) {
     if ((1.0 - velocity_controller_B.In1_d.Data) - 1.0 < rtb_Saturation) {
       // BusAssignment: '<Root>/Bus Assignment'
       rtb_BusAssignment.Data = (1.0 - velocity_controller_B.In1_d.Data) - 1.0;
     }
   } else if ((velocity_controller_B.In1_d.Data < 0.5) &&
-             (velocity_controller_B.In1.Linear.X > 1.0)) {
+             (velocity_controller_B.In1.Data > 1.0)) {
     if ((rtb_Saturation <= 0.0) || rtIsNaN(rtb_Saturation)) {
       // BusAssignment: '<Root>/Bus Assignment'
       rtb_BusAssignment.Data = 0.0;
@@ -540,7 +539,7 @@ void velocity_controller_initialize(void)
     // SystemInitialize for SignalConversion generated from: '<S9>/In1' incorporates:
     //   Outport: '<S9>/Out1'
 
-    velocity_controller_B.In1 = velocity_controller_P.Out1_Y0;
+    velocity_controller_B.In1 = velocity_controller_P.Out1_Y0_h;
 
     // End of SystemInitialize for SubSystem: '<S5>/Enabled Subsystem'
 
@@ -586,7 +585,7 @@ void velocity_controller_initialize(void)
     // SystemInitialize for SignalConversion generated from: '<S10>/In1' incorporates:
     //   Outport: '<S10>/Out1'
 
-    velocity_controller_B.In1_g = velocity_controller_P.Out1_Y0_a;
+    velocity_controller_B.In1_g = velocity_controller_P.Out1_Y0;
 
     // End of SystemInitialize for SubSystem: '<S6>/Enabled Subsystem'
 

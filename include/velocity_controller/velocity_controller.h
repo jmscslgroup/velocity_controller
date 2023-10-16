@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'velocity_controller'.
 //
-// Model version                  : 1.44
+// Model version                  : 5.0
 // Simulink Coder version         : 9.9 (R2023a) 19-Nov-2022
-// C/C++ source code generated on : Thu Oct 12 15:13:25 2023
+// C/C++ source code generated on : Mon Oct 16 12:28:21 2023
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -162,14 +162,13 @@ extern "C"
 
 // Block signals (default storage)
 struct B_velocity_controller_T {
-  SL_Bus_velocity_controller_geometry_msgs_Twist In1;// '<S9>/In1'
-  SL_Bus_velocity_controller_geometry_msgs_Twist b_varargout_2;
   char_T b_zeroDelimTopic[28];
   real_T ProportionalGain;             // '<S49>/Proportional Gain'
   real_T DataTypeConversion;           // '<Root>/Data Type Conversion'
   real_T DerivativeGain;               // '<S38>/Derivative Gain'
   real_T FilterCoefficient;            // '<S47>/Filter Coefficient'
   real_T Switch;                       // '<S35>/Switch'
+  SL_Bus_velocity_controller_std_msgs_Float64 In1;// '<S9>/In1'
   SL_Bus_velocity_controller_std_msgs_Float64 In1_d;// '<S8>/In1'
   SL_Bus_velocity_controller_std_msgs_Bool In1_g;// '<S10>/In1'
   int8_T DataTypeConv2;                // '<S35>/DataTypeConv2'
@@ -254,17 +253,11 @@ struct P_velocity_controller_T_ {
                                  //    '<S51>/Saturation'
                                  //    '<S37>/DeadZone'
 
-  SL_Bus_velocity_controller_geometry_msgs_Twist Out1_Y0;// Computed Parameter: Out1_Y0
-                                                            //  Referenced by: '<S9>/Out1'
+  SL_Bus_velocity_controller_std_msgs_Bool Out1_Y0;// Computed Parameter: Out1_Y0
+                                                      //  Referenced by: '<S10>/Out1'
 
-  SL_Bus_velocity_controller_geometry_msgs_Twist Constant_Value;// Computed Parameter: Constant_Value
-                                                                   //  Referenced by: '<S5>/Constant'
-
-  SL_Bus_velocity_controller_std_msgs_Bool Out1_Y0_a;// Computed Parameter: Out1_Y0_a
-                                                        //  Referenced by: '<S10>/Out1'
-
-  SL_Bus_velocity_controller_std_msgs_Bool Constant_Value_j;// Computed Parameter: Constant_Value_j
-                                                               //  Referenced by: '<S6>/Constant'
+  SL_Bus_velocity_controller_std_msgs_Bool Constant_Value;// Computed Parameter: Constant_Value
+                                                             //  Referenced by: '<S6>/Constant'
 
   SL_Bus_velocity_controller_std_msgs_Float64 Constant_Value_d;// Computed Parameter: Constant_Value_d
                                                                   //  Referenced by: '<S1>/Constant'
@@ -274,6 +267,12 @@ struct P_velocity_controller_T_ {
 
   SL_Bus_velocity_controller_std_msgs_Float64 Constant_Value_n;// Computed Parameter: Constant_Value_n
                                                                   //  Referenced by: '<S4>/Constant'
+
+  SL_Bus_velocity_controller_std_msgs_Float64 Out1_Y0_h;// Computed Parameter: Out1_Y0_h
+                                                           //  Referenced by: '<S9>/Out1'
+
+  SL_Bus_velocity_controller_std_msgs_Float64 Constant_Value_j;// Computed Parameter: Constant_Value_j
+                                                                  //  Referenced by: '<S5>/Constant'
 
   real_T Constant1_Value;              // Expression: 0
                                           //  Referenced by: '<S35>/Constant1'
